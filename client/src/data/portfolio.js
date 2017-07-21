@@ -1,10 +1,10 @@
 export const portfolio = {
   "id": 1,
-  "name":"Harum rem culpa"
-  "cash": 95482.82
-  "market_value": 784050.05
-  "total_value": 879532.87
-  "return": 7.7953
+  "name":"Harum rem culpa",
+  "cash": 95482.82,
+  "market_value": 784050.05,
+  "total_value": 879532.87,
+  "return": 0.7953,
   "recent_trades": [
     {
       "quantity":1741,
@@ -489,3 +489,5 @@ export const portfolio = {
     }
   ]
 }
+
+export default portfolio;
