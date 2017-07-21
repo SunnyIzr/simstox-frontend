@@ -15,7 +15,7 @@ class App extends Component {
   render() {
     return (
       <BrowserRouter>
-        <div className="App">
+        <div className="container">
           <h1>Welcome to SimStox</h1>
           <Route exact path="/" component={Home} />
           <Route path="/user" component={User} />
