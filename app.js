@@ -1,10 +1,17 @@
-const express = require('express')
-const app = express()
+var express = require('express');
+var path = require('path');
+var PORT = process.env.PORT || 3001;
+var app = express();
 
-app.get('/', function (req, res) {
-  res.send('Hello World!')
-})
+// Express only serves static assets in production
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static('client/build'));
+}
 
-app.listen(3000, function () {
-  console.log('Example app listening on port 3000!')
-})
+app.get('*', function(req, res) {
+  res.sendFile(path.join(__dirname, './client/public/index.html'));
+});
+
+app.listen(PORT, function() {
+  console.log('🌎 ==> Now listening on PORT %s! Visit http://localhost:%s in your browser!', PORT, PORT);
+});
