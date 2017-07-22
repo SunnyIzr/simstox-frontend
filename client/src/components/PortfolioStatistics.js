@@ -1,6 +1,7 @@
 import React from 'react'
 import '../styles/PortfolioStatistic.css';
 
+var currencyFormatter = require('currency-formatter');
 
 const PortfolioStatistics = ({ cash, market_value, total_value }) => (
   <div>
@@ -10,7 +11,7 @@ const PortfolioStatistics = ({ cash, market_value, total_value }) => (
           Cash
         </div>
         <div className='value'>
-          {cash}
+          {currencyFormatter.format(cash, { code: 'USD' })}
         </div>
       </li>
       <li className="collection-item">
@@ -18,7 +19,7 @@ const PortfolioStatistics = ({ cash, market_value, total_value }) => (
           Market Value
         </div>
         <div className='value'>
-          {market_value}
+          {currencyFormatter.format(market_value, { code: 'USD' })}
         </div>
       </li>
       <li className="collection-item">
@@ -26,7 +27,7 @@ const PortfolioStatistics = ({ cash, market_value, total_value }) => (
           Total Value
         </div>
         <div className='value'>
-          {total_value}
+          {currencyFormatter.format(total_value, { code: 'USD' })}
         </div>
       </li>
     </ul>

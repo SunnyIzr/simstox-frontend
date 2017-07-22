@@ -1,6 +1,8 @@
 import React from 'react'
 import '../styles/Positions.css';
 
+var currencyFormatter = require('currency-formatter');
+
 const Positions = ({ positions }) => (
   <div>
     <h4>Positions</h4>
@@ -20,10 +22,10 @@ const Positions = ({ positions }) => (
             <tr>
               <td>{position.ticker}</td>
               <td>{position.quantity}</td>
-              <td>{position.average_price}</td>
-              <td>{position.close_price}</td>
-              <td className='hide-on-small-only'>{position.market_value}</td>
-              <td>{position.unrealized_pl}</td>
+              <td>{currencyFormatter.format(position.average_price, { code: 'USD' })}</td>
+              <td>{currencyFormatter.format(position.close_price, { code: 'USD' })}</td>
+              <td className='hide-on-small-only'>{currencyFormatter.format(position.market_value, { code: 'USD' })}</td>
+              <td>{currencyFormatter.format(position.unrealized_pl, { code: 'USD' })}</td>
             </tr>
           )
         }
