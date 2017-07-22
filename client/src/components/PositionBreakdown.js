@@ -7,7 +7,7 @@ import '../styles/Chart.css';
 class PositionBreakdown extends Component{
   componentDidMount(){
     let { positions } = this.props
-    let ctx = document.getElementById("myChart");
+    let ctx = document.getElementById("pieChart");
     let labels = positions.map( (position,k) => 
       position.ticker 
     )
@@ -15,7 +15,7 @@ class PositionBreakdown extends Component{
       position.market_value 
     )  
 
-    let myChart = new Chart(ctx, {
+    let pieChart = new Chart(ctx, {
     type: 'pie',
     data: {
       labels: labels,
@@ -40,7 +40,7 @@ class PositionBreakdown extends Component{
       <div>
         <h5>Breakdown</h5>
         <div className='chart-container'>
-          <canvas id="myChart"></canvas>
+          <canvas id="pieChart"></canvas>
         </div>
       </div>
     )

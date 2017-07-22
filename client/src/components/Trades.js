@@ -4,7 +4,7 @@ import '../styles/Positions.css';
 var currencyFormatter = require('currency-formatter');
 
 const Trades = ({ trades }) => (
-  <div className='hide-on-small-only'>
+  <div>
     <h5>Recent Trades</h5>
     <table className='responsive-table centered highlight bordered'>
       <thead>
