@@ -2,14 +2,32 @@
   top: 0;
   left: 0;
   z-index: 3 !important;
+  background: rgba(255, 255, 255, 0.3);
 }
 
 .bm-menu-wrap{
   top: 0;
   left: 0;
-  z-index: 3 !important
+  z-index: 4 !important
 }
 
-.bm-burger-button button{
+.bm-burger-button{
+  width: 25px;
+  height: 20px;
+  position: fixed;
+  top: 14px;
+  left: 12px;
+  z-index: 3 !important;
+}
 
+.bm-burger-bars{
+  background: #45588e;
+}
+
+nav{
+  background: #D8E4FF;
+}
+
+nav a{
+  color: #45588e;
 }
