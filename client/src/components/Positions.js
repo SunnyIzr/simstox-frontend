@@ -6,7 +6,7 @@ var currencyFormatter = require('currency-formatter');
 const Positions = ({ positions }) => (
   <div>
     <h4>Positions</h4>
-    <table>
+    <table className='responsive-table centered highlight bordered'>
       <thead>
         <tr>
           <th>Ticker</th>
@@ -19,7 +19,7 @@ const Positions = ({ positions }) => (
       </thead>
       <tbody>
         { positions.map( (position, i) =>
-            <tr>
+            <tr key={i}>
               <td>{position.ticker}</td>
               <td>{position.quantity}</td>
               <td>{currencyFormatter.format(position.average_price, { code: 'USD' })}</td>

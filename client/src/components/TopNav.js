@@ -1,7 +1,7 @@
-import React, { Component } from 'react';
+import React from 'react';
 import '../styles/TopNav.css';
 
-const TopNav = ({}) => (
+const TopNav = () => (
   <div className='top-nav'>
     <p className='logo'>simstox</p>
     
