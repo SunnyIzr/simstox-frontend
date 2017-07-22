@@ -5,7 +5,7 @@ var currencyFormatter = require('currency-formatter');
 
 const Positions = ({ positions }) => (
   <div>
-    <h4>Positions</h4>
+    <h5>Positions</h5>
     <table className='responsive-table centered highlight bordered'>
       <thead>
         <tr>
