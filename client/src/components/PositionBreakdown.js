@@ -15,7 +15,7 @@ class PositionBreakdown extends Component{
       position.market_value 
     )  
 
-    let pieChart = new Chart(ctx, {
+    new Chart(ctx, {
     type: 'pie',
     data: {
       labels: labels,

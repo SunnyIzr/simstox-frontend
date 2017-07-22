@@ -15,7 +15,7 @@ class StockPerformance extends Component{
       dataPoint[1]
     )  
 
-    let stockPerformanceChart = new Chart(ctx, {
+    new Chart(ctx, {
     type: 'line',
     data: {
       labels: labels,

@@ -1,6 +1,5 @@
 import React from 'react'
 import '../styles/Positions.css';
-import { Link } from 'react-router-dom'
 import PositionRow from './PositionRow'
 
 const Positions = ({ positions }) => (

@@ -15,7 +15,7 @@ class PortfolioPerformance extends Component{
       dataPoint.total_value 
     )  
 
-    let portfolioPerformanceChart = new Chart(ctx, {
+    new Chart(ctx, {
     type: 'line',
     data: {
       labels: labels,
