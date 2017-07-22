@@ -1,5 +1,6 @@
 export const position = {
   "ticker":"MSFT",
+  "portfolio_name": "Large Cap Dividend",
   "return_value":0.4511,
   "quantity":3316,
   "average_price":35.56,
