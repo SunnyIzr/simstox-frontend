@@ -2,13 +2,14 @@
   top: 0;
   left: 0;
   z-index: 3 !important;
-  background: rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.4) !important;
 }
 
 .bm-menu-wrap{
   top: 0;
   left: 0;
-  z-index: 4 !important
+  z-index: 4 !important;
+  border-right: 1px solid #CECAF9;
 }
 
 .bm-burger-button{
@@ -20,14 +21,38 @@
   z-index: 3 !important;
 }
 
+.bm-item-list{
+  padding-top: 80px;
+}
+
 .bm-burger-bars{
   background: #45588e;
 }
-
+.menu-item{
+  padding: 5px 20px;
+}
 nav{
   background: #D8E4FF;
 }
 
 nav a{
   color: #45588e;
+  transition: all ease-in 300ms;
+  border-top: 1px solid #CECAF9;
+}
+
+a:hover{
+  background: #fff;
+}
+
+.sub-item{
+  padding-left: 40px;
+}
+.bm-cross-button{
+  width: 30px !important;
+  height: 30px !important;
+}
+.bm-cross{
+  background: #45588e;
+  height: 20px !important;
 }

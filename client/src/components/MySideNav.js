@@ -1,19 +1,30 @@
 import React from 'react';
 import { slide as Menu } from 'react-burger-menu'
 import '../styles/MySideNav.css';
+import { Link } from 'react-router-dom'
 
 class MySideNav extends React.Component {
-  showSettings (event) {
-    event.preventDefault();
+  constructor(){
+    super()
+    this.state ={
+      isOpen: null
+    }
+    this.toggleMenu = this.toggleMenu.bind(this)
   }
-
+  toggleMenu(){
+    let isOpen = this.state.isOpen
+    this.setState({isOpen: isOpen })
+  }
   render () {
     return (
-      <Menu>
-        <a id="home" className="menu-item" href="/">Home</a>
-        <a id="about" className="menu-item" href="/about">About</a>
-        <a id="contact" className="menu-item" href="/contact">Contact</a>
-        <a onClick={ this.showSettings } className="menu-item--small" href="">Settings</a>
+      <Menu isOpen={this.state.isOpen} >
+        <Link className="menu-item" to="/" onClick={this.toggleMenu}>Home</Link>
+        <Link className="menu-item" to="/portfolios" onClick={this.toggleMenu}>Portfolios</Link>
+        <Link className="menu-item sub-item" to="/portfolio" onClick={this.toggleMenu}>Large Cap Divident</Link>
+        <Link className="menu-item sub-item" to="/portfolio" onClick={this.toggleMenu}>High Yield Value</Link>
+        <Link className="menu-item sub-item" to="/portfolio" onClick={this.toggleMenu}>Blue Chip Tech</Link>
+        <Link className="menu-item" to="/user" onClick={this.toggleMenu}>Account</Link>
+        <Link className="menu-item" to="/trade" onClick={this.toggleMenu}>Trade</Link>
       </Menu>
     );
   }
