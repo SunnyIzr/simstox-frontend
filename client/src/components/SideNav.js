@@ -1,9 +1,9 @@
 import React from 'react';
 import { slide as Menu } from 'react-burger-menu'
-import '../styles/MySideNav.css';
+import '../styles/SideNav.css';
 import { Link } from 'react-router-dom'
 
-class MySideNav extends React.Component {
+class SideNav extends React.Component {
   constructor(){
     super()
     this.state ={
@@ -30,4 +30,4 @@ class MySideNav extends React.Component {
   }
 }
 
-export default MySideNav
+export default SideNav

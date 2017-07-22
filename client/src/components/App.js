@@ -8,7 +8,7 @@ import User from './User'
 import Portfolio from './Portfolio'
 import Position from './Position'
 import TopNav from './TopNav'
-import MySideNav from './MySideNav'
+import SideNav from './SideNav'
 
 
 
@@ -17,7 +17,7 @@ class App extends Component {
     return (
       <BrowserRouter>
         <div className="container">
-          <MySideNav />
+          <SideNav />
           <TopNav />
           <Route exact path="/" component={Home} />
           <Route path="/user" component={User} />
