@@ -35,7 +35,7 @@ nav.bm-item-list {
   background: #D8E4FF;
 }
 
-nav.bm-item-list  a{
+nav.bm-item-list  .menu-item{
   color: #45588e;
   transition: all ease-in 300ms;
   border-top: 1px solid #CECAF9;

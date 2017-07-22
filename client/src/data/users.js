@@ -40,7 +40,7 @@ export const users = [
         "return_value":13.3976
       }
     ]
-  }
+  },
   {
     "id":2,
     "first_name":"Katelyn",
