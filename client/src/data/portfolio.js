@@ -4,7 +4,7 @@ export const portfolio = {
   "cash": 95482.82,
   "market_value": 784050.05,
   "total_value": 879532.87,
-  "return": 0.7953,
+  "return_value": 0.7953,
   "recent_trades": [
     {
       "quantity":1741,

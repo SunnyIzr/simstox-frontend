@@ -13,6 +13,14 @@
   background-color: rgba(255,255,255,0.5);
 }
 
-.collection-item:nth-child(3) div{
+.collection-item:nth-child(1){
+  padding: 20px ;
+}
+
+.collection-item:nth-child(1) div{
+  font-size: 30px;
+}
+
+.collection-item:nth-child(4) div{
   font-weight: 500;
 }

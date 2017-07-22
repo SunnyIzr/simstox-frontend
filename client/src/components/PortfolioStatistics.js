@@ -3,9 +3,17 @@ import '../styles/PortfolioStatistic.css';
 
 var currencyFormatter = require('currency-formatter');
 
-const PortfolioStatistics = ({ cash, market_value, total_value }) => (
+const PortfolioStatistics = ({ return_value, cash, market_value, total_value }) => (
   <div>
     <ul className="collection">
+      <li className="collection-item">
+        <div className='header'>
+          Return
+        </div>
+        <div className='value'>
+          { return_value * 100.00 }%
+        </div>
+      </li>
       <li className="collection-item">
         <div className='header'>
           Cash
