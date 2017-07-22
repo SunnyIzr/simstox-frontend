@@ -18,18 +18,18 @@ class PositionRow extends React.Component {
   }
 
   render(){
-    let { position } = this.props
+    let { ticker, quantity, average_price, close_price, market_value, unrealized_pl } = this.props.position
     if (this.state.redirect) {
       return <Redirect push to="/position" />;
     }
     return(
       <tr onClick={this.redirectToPosition}>
-        <td>{position.ticker}</td>
-        <td>{position.quantity}</td>
-        <td>{currencyFormatter.format(position.average_price, { code: 'USD' })}</td>
-        <td>{currencyFormatter.format(position.close_price, { code: 'USD' })}</td>
-        <td className='hide-on-small-only'>{currencyFormatter.format(position.market_value, { code: 'USD' })}</td>
-        <td>{currencyFormatter.format(position.unrealized_pl, { code: 'USD' })}</td>
+        <td>{ticker}</td>
+        <td>{quantity}</td>
+        <td>{currencyFormatter.format(average_price, { code: 'USD' })}</td>
+        <td>{currencyFormatter.format(close_price, { code: 'USD' })}</td>
+        <td className='hide-on-small-only'>{currencyFormatter.format(market_value, { code: 'USD' })}</td>
+        <td>{currencyFormatter.format(unrealized_pl, { code: 'USD' })}</td>
       </tr>
     )
   }
