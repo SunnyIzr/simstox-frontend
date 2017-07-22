@@ -27,15 +27,25 @@ class App extends Component {
 
   render() {
     let { user } = this.state
+    const isLoggedIn = this.state.user.id != null
     return (
       <BrowserRouter>
         <div className="container">
           <SideNav />
           <TopNav />
-          <Route exact path="/" render={ () => <Home login={this.login}/>}/>
-          <Route path="/user" render={ () => <User user={user} />} />
-          <Route path="/portfolio" render={ () => <Portfolio user={user} />} />
-          <Route path="/position" render={ () => <Position user={user} />} />  
+          { isLoggedIn ? (
+            <div>
+              <Route path="/user" render={ () => <User user={user} />} />
+              <Route path="/portfolio" render={ () => <Portfolio user={user} />} />
+              <Route path="/position" render={ () => <Position user={user} />} />  
+            </div>
+          ) : (
+            <div>
+              <Route path="/*" render={ () => <p>You are not logged in</p>} />
+              <Route path="/*" render={ () => <Home login={this.login}/>}/>
+            </div>
+
+          )}
         </div>
       </BrowserRouter>
     );
