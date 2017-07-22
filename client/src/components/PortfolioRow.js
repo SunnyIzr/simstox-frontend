@@ -18,9 +18,9 @@ class PortfolioRow extends React.Component {
   }
 
   render(){
-    let { name, cash, market_value, total_value, total_pl, return_value } = this.props.portfolio
+    let { id, name, cash, market_value, total_value, total_pl, return_value } = this.props.portfolio
     if (this.state.redirect) {
-      return <Redirect push to="/portfolio" />;
+      return <Redirect push to={"/portfolios/" + id} />;
     }
     return(
       <tr onClick={this.redirectToPortfolio}>

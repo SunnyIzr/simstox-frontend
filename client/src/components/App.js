@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import '../styles/App.css';
-import { BrowserRouter, Route } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
 // App components
 import Home from './Home'
@@ -33,22 +33,24 @@ class App extends Component {
         <div className="container">
           <SideNav />
           <TopNav />
+          <Switch>
+            <Route path="/portfolios/:portfolio_id/positions/:stock_id" render={ (props) => <Position {...props} user={user} />} />  
+            <Route path="/portfolios/:id" render={ (props) => <Portfolio {...props} user={user}/> } />
+          </Switch>
+
           { isLoggedIn ? (
             <div>
-              <Route path="/user" render={ () => <User user={user} />} />
-              <Route path="/portfolio" render={ () => <Portfolio user={user} />} />
-              <Route path="/position" render={ () => <Position user={user} />} />  
+              <Route path="/user" render={ (props) => <User {...props} user={user} />} />
             </div>
           ) : (
             <div>
               <Route path="/*" render={ () => <p>You are not logged in</p>} />
-              <Route path="/*" render={ () => <Home login={this.login}/>}/>
+              <Route path="/*" render={ (props) => <Home {...props} login={this.login}/>}/>
             </div>
-
           )}
         </div>
       </BrowserRouter>
-    );
+    )
   }
 }
 

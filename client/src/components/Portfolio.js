@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import portfolio from '../data/portfolio'
 import PortfolioStatistics from './PortfolioStatistics'
 import Positions from './Positions'
 import PortfolioPerformance from './PortfolioPerformance'
@@ -11,10 +10,23 @@ var MediaQuery = require('react-responsive');
 class Portfolio extends Component {
   constructor(){
     super()
-    this.state = portfolio
+    this.state = {
+      portfolio: {positions: [], recent_trades: [], historical_data: []}
+    }
   }
+
+  componentDidMount(){
+    let url='http://localhost:3001/portfolios/' + this.props.match.params.id
+    fetch(url)
+      .then(function(response) {
+        return response.text()
+      }).then(function(body) {
+        this.setState({portfolio: JSON.parse(body)})
+      }.bind(this))
+  }
+
   render() {
-    let { name, return_value, cash, market_value, total_value, positions, historical_data, recent_trades } = this.state
+    let { name, return_value, cash, market_value, total_value, positions, historical_data, recent_trades } = this.state.portfolio
     return (
       <div className="row">
         <div className='col s12'>

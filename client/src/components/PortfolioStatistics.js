@@ -12,7 +12,7 @@ const PortfolioStatistics = ({ name, return_value, cash, market_value, total_val
           Return
         </div>
         <div className='value'>
-          { return_value * 100.00 }%
+          { return_value }%
         </div>
       </li>
       <li className="collection-item">

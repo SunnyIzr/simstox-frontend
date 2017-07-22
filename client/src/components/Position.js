@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import position from '../data/position'
 import PositionStatistics from './PositionStatistics'
 import StockPerformance from './StockPerformance'
 import '../styles/Positions.css'
@@ -10,18 +9,33 @@ var MediaQuery = require('react-responsive');
 class Position extends Component {
   constructor(){
     super()
-    this.state = position
+    this.state = {
+      position: {intraday: []}
+    }
   }
+
+  componentDidMount(){
+    let { portfolio_id, stock_id } = this.props.match.params
+    let url = 'http://localhost:3001/portfolios/' + portfolio_id + "/stocks/" + stock_id
+
+    fetch(url)
+      .then(function(response) {
+        return response.text()
+      }).then(function(body){
+        this.setState({position: JSON.parse(body)})
+      }.bind(this))
+  }
+
   render() {
-    let { portfolio_name, ticker, return_value, quantity, average_price, close_price, unrealized_pl, intraday } = this.state
+    let { portfolio_id, portfolio_name, ticker, return_value, quantity, average_price, close_price, unrealized_pl, intraday } = this.state.position
     return (
       <div className='row'>
         <div className='col s12'>
           <nav className='breadcrumb-container'>
             <div className="nav-wrapper">
-                <Link to="/user" className="breadcrumb">Home</Link>
-                <Link to="/portfolio" className="breadcrumb">{ portfolio_name }</Link>
-                <a href="#!" className="breadcrumb">{ ticker }</a>
+              <Link to="/user" className="breadcrumb">Home</Link>
+              <Link to={ "/portfolios/" + portfolio_id } className="breadcrumb">{ portfolio_name }</Link>
+              <a href="#!" className="breadcrumb">{ ticker }</a>
             </div>
           </nav>
         </div>

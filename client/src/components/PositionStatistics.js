@@ -11,7 +11,7 @@ const PositionStatistics = ({ return_value, quantity, average_price, close_price
           Return
         </div>
         <div className='value'>
-          { return_value * 100.00 }%
+          { return_value }%
         </div>
       </li>
       <li className="collection-item">

@@ -18,9 +18,9 @@ class PositionRow extends React.Component {
   }
 
   render(){
-    let { ticker, quantity, average_price, close_price, market_value, unrealized_pl } = this.props.position
+    let { portfolio_id, stock_id, ticker, quantity, average_price, close_price, market_value, unrealized_pl } = this.props.position
     if (this.state.redirect) {
-      return <Redirect push to="/position" />;
+      return <Redirect push to={"/portfolios/" + portfolio_id + "/positions/" + stock_id} />;
     }
     return(
       <tr onClick={this.redirectToPosition}>
