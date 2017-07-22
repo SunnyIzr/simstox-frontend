@@ -21,6 +21,6 @@
   font-size: 30px;
 }
 
-.collection-item:nth-child(4) div{
+.collection-item:nth-last-child(1) div{
   font-weight: 500;
 }

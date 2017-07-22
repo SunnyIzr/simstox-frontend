@@ -4,10 +4,10 @@ import '../styles/Chart.css';
 
 
 
-class HistoricalPerformance extends Component{
+class PortfolioPerformance extends Component{
   componentDidMount(){
     let { historical_data } = this.props
-    let ctx = document.getElementById("myChart");
+    let ctx = document.getElementById("portfolioPerformance");
     let labels = historical_data.map( (dataPoint,k) => 
       dataPoint.time 
     )
@@ -15,7 +15,7 @@ class HistoricalPerformance extends Component{
       dataPoint.total_value 
     )  
 
-    let myChart = new Chart(ctx, {
+    let portfolioPerformanceChart = new Chart(ctx, {
     type: 'line',
     data: {
       labels: labels,
@@ -62,7 +62,7 @@ class HistoricalPerformance extends Component{
       <div>
         <h5>Performance</h5>
         <div className='chart-container'>
-          <canvas id="myChart"></canvas>
+          <canvas id="portfolioPerformance"></canvas>
         </div>
       </div>
     )
@@ -70,4 +70,4 @@ class HistoricalPerformance extends Component{
 }
 
 
-export default HistoricalPerformance
+export default PortfolioPerformance

@@ -1,5 +1,5 @@
 import React from 'react'
-import '../styles/PortfolioStatistic.css';
+import '../styles/Statistics.css';
 
 var currencyFormatter = require('currency-formatter');
 

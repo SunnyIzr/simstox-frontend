@@ -1,7 +1,7 @@
 import React from 'react'
 import '../styles/Positions.css';
-
-var currencyFormatter = require('currency-formatter');
+import { Link } from 'react-router-dom'
+import PositionRow from './PositionRow'
 
 const Positions = ({ positions }) => (
   <div>
@@ -19,14 +19,7 @@ const Positions = ({ positions }) => (
       </thead>
       <tbody>
         { positions.map( (position, i) =>
-            <tr key={i}>
-              <td>{position.ticker}</td>
-              <td>{position.quantity}</td>
-              <td>{currencyFormatter.format(position.average_price, { code: 'USD' })}</td>
-              <td>{currencyFormatter.format(position.close_price, { code: 'USD' })}</td>
-              <td className='hide-on-small-only'>{currencyFormatter.format(position.market_value, { code: 'USD' })}</td>
-              <td>{currencyFormatter.format(position.unrealized_pl, { code: 'USD' })}</td>
-            </tr>
+            <PositionRow position={position} key={i} />
           )
         }
       </tbody>
