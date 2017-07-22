@@ -1,15 +1,10 @@
 import React, { Component } from 'react';
-import user from '../data/user';
 import '../styles/User.css'
 import Portfolios from './Portfolios'
 
 class User extends Component {
-  constructor(){
-    super()
-    this.state = user
-  }
   render() {
-    let { first_name, last_name, username, portfolios } = this.state
+    let { first_name, portfolios } = this.props.user
     return (
       <div>
         <div className='greet'>
@@ -22,6 +17,7 @@ class User extends Component {
         <div className='clearfix'></div>
         <Portfolios portfolios={portfolios} />
       </div>
+
     )
   }
 }

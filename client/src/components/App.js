@@ -13,16 +13,29 @@ import SideNav from './SideNav'
 
 
 class App extends Component {
+  constructor(){
+    super()
+    this.state = {
+      user: {}
+    }
+    this.login = this.login.bind(this)
+  }
+
+  login(userData){
+    this.setState({user: userData })
+  }
+
   render() {
+    let { user } = this.state
     return (
       <BrowserRouter>
         <div className="container">
           <SideNav />
           <TopNav />
-          <Route exact path="/" component={Home} />
-          <Route path="/user" component={User} />
-          <Route path="/portfolio" component={Portfolio} />
-          <Route path="/position" component={Position} />  
+          <Route exact path="/" render={ () => <Home login={this.login}/>}/>
+          <Route path="/user" render={ () => <User user={user} />} />
+          <Route path="/portfolio" render={ () => <Portfolio user={user} />} />
+          <Route path="/position" render={ () => <Position user={user} />} />  
         </div>
       </BrowserRouter>
     );

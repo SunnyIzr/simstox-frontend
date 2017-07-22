@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/SunnyIzr/simstox-frontend/issues"
   },
-  "homepage": "https://github.com/SunnyIzr/simstox-frontend#readme"
+  "homepage": "https://github.com/SunnyIzr/simstox-frontend#readme",
+  "dependencies": {
+    "whatwg-fetch": "^2.0.3"
+  }
 }
