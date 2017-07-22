@@ -31,16 +31,16 @@ class App extends Component {
     return (
       <BrowserRouter>
         <div className="container">
-          <SideNav />
-          <TopNav />
-          <Switch>
-            <Route path="/portfolios/:portfolio_id/positions/:stock_id" render={ (props) => <Position {...props} user={user} />} />  
-            <Route path="/portfolios/:id" render={ (props) => <Portfolio {...props} user={user}/> } />
-          </Switch>
+          <SideNav user={user} />
+          <TopNav user={user} />
 
           { isLoggedIn ? (
             <div>
-              <Route path="/user" render={ (props) => <User {...props} user={user} />} />
+              <Switch>
+                <Route path="/user" render={ (props) => <User {...props} user={user} />} />
+                <Route path="/portfolios/:portfolio_id/positions/:stock_id" render={ (props) => <Position {...props} user={user} />} />  
+                <Route path="/portfolios/:id" render={ (props) => <Portfolio {...props} user={user}/> } />
+              </Switch>
             </div>
           ) : (
             <div>

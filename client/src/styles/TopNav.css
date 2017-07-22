@@ -17,3 +17,8 @@
   left: 50%;
   transform: translateX(-50%);
 }
+
+.greeting{
+  margin-top: 0;
+  float: right;
+}
