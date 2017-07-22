@@ -19,6 +19,7 @@ class Position extends Component {
         <div className='col s12'>
           <nav className='breadcrumb-container'>
             <div className="nav-wrapper">
+                <Link to="/user" className="breadcrumb">Home</Link>
                 <Link to="/portfolio" className="breadcrumb">{ portfolio_name }</Link>
                 <a href="#!" className="breadcrumb">{ ticker }</a>
             </div>

@@ -5,7 +5,7 @@ var currencyFormatter = require('currency-formatter');
 
 const PortfolioStatistics = ({ name, return_value, cash, market_value, total_value }) => (
   <div>
-    <h5>Summary - {name}</h5>
+    <h5>Summary</h5>
     <ul className="collection">
       <li className="collection-item">
         <div className='header'>
