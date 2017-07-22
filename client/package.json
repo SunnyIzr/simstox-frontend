@@ -4,10 +4,13 @@
   "private": true,
   "dependencies": {
     "react": "^15.6.1",
+    "react-burger-menu": "^2.1.4",
     "react-dom": "^15.6.1",
+    "react-icons-kit": "^1.0.7",
     "react-redux": "^5.0.5",
     "react-router-dom": "^4.1.2",
     "react-scripts": "1.0.10",
+    "react-sidenav": "^2.1.1",
     "redux": "^3.7.2"
   },
   "scripts": {

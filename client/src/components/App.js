@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from '../images/logo.svg';
 import '../styles/App.css';
 import { BrowserRouter, Route } from 'react-router-dom';
 
@@ -8,6 +7,8 @@ import Home from './Home'
 import User from './User'
 import Portfolio from './Portfolio'
 import Position from './Position'
+import TopNav from './TopNav'
+import MySideNav from './MySideNav'
 
 
 
@@ -16,11 +17,12 @@ class App extends Component {
     return (
       <BrowserRouter>
         <div className="container">
-          <h1>Welcome to SimStox</h1>
+          <MySideNav />
+          <TopNav />
           <Route exact path="/" component={Home} />
           <Route path="/user" component={User} />
           <Route path="/portfolio" component={Portfolio} />
-          <Route path="/position" component={Position} />
+          <Route path="/position" component={Position} />  
         </div>
       </BrowserRouter>
     );

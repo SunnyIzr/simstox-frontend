@@ -1,6 +1,6 @@
 export const portfolio = {
   "id": 1,
-  "name":"Harum rem culpa",
+  "name":"Large Cap Dividend",
   "cash": 95482.82,
   "market_value": 784050.05,
   "total_value": 879532.87,

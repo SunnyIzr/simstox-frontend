@@ -2249,7 +2249,7 @@ abbr[title] {
  */
 b,
 strong {
-  font-weight: bold;
+  font-weight: 200;
 }
 
 /**
@@ -2519,7 +2519,7 @@ textarea {
  * NOTE: the default cannot safely be changed in Chrome and Safari on OS X.
  */
 optgroup {
-  font-weight: bold;
+  font-weight: 200;
 }
 
 /* Tables
@@ -3321,7 +3321,7 @@ span.badge {
 }
 
 span.badge.new {
-  font-weight: 300;
+  font-weight: 200;
   font-size: 0.8rem;
   color: #fff;
   background-color: #26a69a;
@@ -4421,32 +4421,27 @@ nav .input-field label.active i {
 }
 
 @font-face {
-  font-family: "Roboto";
-  src: local(Roboto Thin), url("./fonts/roboto/Roboto-Thin.woff2") format("woff2"), url("./fonts/roboto/Roboto-Thin.woff") format("woff");
+  font-family: 'Montserrat', sans-serif;
   font-weight: 100;
 }
 
 @font-face {
-  font-family: "Roboto";
-  src: local(Roboto Light), url("./fonts/roboto/Roboto-Light.woff2") format("woff2"), url("./fonts/roboto/Roboto-Light.woff") format("woff");
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 200;
+}
+
+@font-face {
+  font-family: 'Montserrat', sans-serif;
   font-weight: 300;
 }
 
 @font-face {
-  font-family: "Roboto";
-  src: local(Roboto Regular), url("./fonts/roboto/Roboto-Regular.woff2") format("woff2"), url("./fonts/roboto/Roboto-Regular.woff") format("woff");
-  font-weight: 400;
-}
-
-@font-face {
-  font-family: "Roboto";
-  src: local(Roboto Medium), url("./fonts/roboto/Roboto-Medium.woff2") format("woff2"), url("./fonts/roboto/Roboto-Medium.woff") format("woff");
+  font-family: 'Montserrat', sans-serif;
   font-weight: 500;
 }
 
 @font-face {
-  font-family: "Roboto";
-  src: local(Roboto Bold), url("./fonts/roboto/Roboto-Bold.woff2") format("woff2"), url("./fonts/roboto/Roboto-Bold.woff") format("woff");
+  font-family: 'Montserrat', sans-serif;
   font-weight: 700;
 }
 
@@ -4456,7 +4451,7 @@ a {
 
 html {
   line-height: 1.5;
-  font-family: "Roboto", sans-serif;
+  font-family: 'Montserrat', sans-serif;
   font-weight: normal;
   color: rgba(0, 0, 0, 0.87);
 }
@@ -4480,7 +4475,7 @@ html {
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-weight: 400;
+  font-weight: 300;
   line-height: 1.1;
 }
 
@@ -4537,7 +4532,7 @@ small {
 }
 
 .light, .page-footer .footer-copyright {
-  font-weight: 300;
+  font-weight: 200;
 }
 
 .thin {
@@ -4545,7 +4540,7 @@ small {
 }
 
 .flow-text {
-  font-weight: 300;
+  font-weight: 200;
 }
 
 @media only screen and (min-width: 360px) {
@@ -4725,7 +4720,7 @@ small {
 
 .card .card-title {
   font-size: 24px;
-  font-weight: 300;
+  font-weight: 200;
 }
 
 .card .card-title.activator {
@@ -4957,7 +4952,7 @@ small {
   background-color: #323232;
   padding: 10px 25px;
   font-size: 1.1rem;
-  font-weight: 300;
+  font-weight: 200;
   color: #fff;
   display: -webkit-box;
   display: -webkit-flex;
@@ -7253,7 +7248,7 @@ input[type=range]:focus::-ms-fill-upper {
 
 .table-of-contents a {
   display: inline-block;
-  font-weight: 300;
+  font-weight: 200;
   color: #757575;
   padding-left: 20px;
   height: 1.5rem;
@@ -7439,7 +7434,7 @@ input[type=range]:focus::-ms-fill-upper {
 .side-nav .user-view .email,
 .side-nav .userView .email {
   padding-bottom: 16px;
-  font-weight: 400;
+  font-weight: 300;
 }
 
 .drag-target {
@@ -8726,7 +8721,7 @@ input[type=range]:focus::-ms-fill-upper {
   color: #595959;
   letter-spacing: -.3;
   padding: .75rem 0;
-  font-weight: 400;
+  font-weight: 300;
   border: 1px solid transparent;
 }
 
@@ -8795,7 +8790,7 @@ input[type=range]:focus::-ms-fill-upper {
   background: #ffffff;
   font-size: .8em;
   padding: .66em 0;
-  font-weight: bold;
+  font-weight: 200;
   width: 33%;
   display: inline-block;
   vertical-align: bottom;
@@ -8878,7 +8873,7 @@ input[type=range]:focus::-ms-fill-upper {
   background-color: #26a69a;
   color: #fff;
   padding: 18px;
-  font-weight: 300;
+  font-weight: 200;
 }
 
 @media only screen and (min-width: 601px) {
@@ -8950,7 +8945,7 @@ input[type=range]:focus::-ms-fill-upper {
   color: rgba(0, 0, 0, 0.87);
   letter-spacing: -.3px;
   padding: 0.75rem 0;
-  font-weight: 400;
+  font-weight: 300;
   border: 1px solid transparent;
 }
 
@@ -9130,7 +9125,7 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
   top: -0.25em;
   color: rgba(0, 0, 0, 0.87);
   font-size: 1.25em;
-  font-weight: bold;
+  font-weight: 200;
 }
 
 .picker--time .picker__button--clear:hover:before,
@@ -9169,10 +9164,10 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
    ========================================================================== */
 .clockpicker-display {
   font-size: 4rem;
-  font-weight: bold;
+  font-weight: 200;
   text-align: center;
   color: rgba(255, 255, 255, 0.6);
-  font-weight: 400;
+  font-weight: 300;
   clear: both;
   position: relative;
 }

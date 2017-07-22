@@ -12,7 +12,7 @@ class Portfolio extends Component {
     let { name, cash, market_value, total_value, positions } = this.state
     return (
       <div>
-        <h2> {name} Portfolio </h2>
+        <h4> {name} </h4>
         <PortfolioStatistics cash={cash} market_value={market_value} total_value={total_value}/>
         <Positions positions={positions}/>
       </div>
