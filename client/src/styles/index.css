@@ -1,8 +1,5 @@
 body{
   color: #45588e;
-}
-
-.container{
   padding-top: 50px;
 }
 
@@ -42,4 +39,18 @@ body{
          rgba(0,0,255,.5), rgba(0,0,255,0) 70.71%), 
     radial-gradient(circle at 93.3% 75%, 
          rgba(210, 161, 240,1), rgba(210, 161, 240,0) 70.71%);
+}
+
+.container {
+  margin: 0 auto;
+  max-width: 1280px;
+  width: 90%;
+}
+@media only screen and (min-width: 601px)
+  .container {
+    width: 85%;
+}
+@media only screen and (min-width: 993px)
+  .container {
+    width: 70%;
 }
