@@ -16,6 +16,7 @@ class App extends Component {
   constructor(){
     super()
     this.state = {
+      token: sessionStorage.token,
       user: {}
     }
     this.login = this.login.bind(this)
@@ -24,24 +25,39 @@ class App extends Component {
   }
 
   componentDidMount(){
-    if (sessionStorage.user_id != null){
+    if (sessionStorage.token != null){
       this.getUserData()
     }
   }
 
-  login(userData){
-    sessionStorage.setItem('user_id', userData.id)
-    this.getUserData()
+  login(loginData){
+    fetch('http://localhost:3001/users/login', {
+      method: 'post',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(loginData)
+    }).then(function(res){
+      return res.text()
+    }).then(function(body){
+      this.setState(JSON.parse(body))
+      console.log(JSON.parse(body).token)
+      sessionStorage.setItem('token', JSON.parse(body).token)
+    }.bind(this))
   }
 
   logout(){
-    this.setState({user: {}})
+    this.setState({token: null, user: {}})
     sessionStorage.clear()
   }
 
   getUserData(){
-  let url = 'http://localhost:3001/users/' + sessionStorage.user_id
-   fetch(url)
+  let url = 'http://localhost:3001/user'
+  let data = { 
+    headers: {
+      'Content-Type': 'application/json',
+      "Authorization": sessionStorage.token
+    }
+  }
+   fetch(url, data)
       .then(function(response) {
         return response.text()
       }).then(function(body) {
@@ -64,6 +80,7 @@ class App extends Component {
                 <Route path="/user" render={ (props) => <User {...props} user={user} />} />
                 <Route path="/portfolios/:portfolio_id/positions/:stock_id" render={ (props) => <Position {...props} user={user} />} />  
                 <Route path="/portfolios/:id" render={ (props) => <Portfolio {...props} user={user}/> } />
+                <Route path="/" render={ (props) => <User {...props} user={user} />} />
               </Switch>
             </div>
           ) : (
