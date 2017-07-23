@@ -17,7 +17,13 @@ class Portfolio extends Component {
 
   componentDidMount(){
     let url='http://localhost:3001/portfolios/' + this.props.match.params.id
-    fetch(url)
+    let data = { 
+      headers: {
+        'Content-Type': 'application/json',
+        "Authorization": sessionStorage.token
+      }
+    }
+    fetch(url, data)
       .then(function(response) {
         return response.text()
       }).then(function(body) {

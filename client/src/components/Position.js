@@ -17,8 +17,13 @@ class Position extends Component {
   componentDidMount(){
     let { portfolio_id, stock_id } = this.props.match.params
     let url = 'http://localhost:3001/portfolios/' + portfolio_id + "/stocks/" + stock_id
-
-    fetch(url)
+    let data = { 
+      headers: {
+        'Content-Type': 'application/json',
+        "Authorization": sessionStorage.token
+      }
+    }
+    fetch(url, data)
       .then(function(response) {
         return response.text()
       }).then(function(body){
