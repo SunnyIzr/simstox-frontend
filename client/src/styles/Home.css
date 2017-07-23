@@ -1,0 +1,17 @@
+.login-form{
+  max-width: 800px;
+  background: rgba(255,255,255,0.7);
+  float: none !important;
+  margin: auto;
+  border-radius: 15px;
+  padding: 50px !important;
+}
+
+.login-btn{
+  display: block;
+  width: 100%;
+}
+
+.home-message{
+  text-align: center;
+}
