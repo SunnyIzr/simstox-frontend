@@ -29,7 +29,7 @@ class PortfolioRow extends React.Component {
         <td>{currencyFormatter.format(market_value, { code: 'USD' })}</td>
         <td>{currencyFormatter.format(total_value, { code: 'USD' })}</td>
         <td>{currencyFormatter.format(total_pl, { code: 'USD' })}</td>
-        <td>{ return_value * 100.00 }%</td>
+        <td>{ return_value }%</td>
       </tr>
     )
   }
