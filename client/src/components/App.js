@@ -19,10 +19,34 @@ class App extends Component {
       user: {}
     }
     this.login = this.login.bind(this)
+    this.logout = this.logout.bind(this)
+    this.getUserData = this.getUserData.bind(this)
+  }
+
+  componentDidMount(){
+    if (sessionStorage.user_id != null){
+      this.getUserData()
+    }
   }
 
   login(userData){
-    this.setState({user: userData })
+    sessionStorage.setItem('user_id', userData.id)
+    this.getUserData()
+  }
+
+  logout(){
+    this.setState({user: {}})
+    sessionStorage.clear()
+  }
+
+  getUserData(){
+  let url = 'http://localhost:3001/users/' + sessionStorage.user_id
+   fetch(url)
+      .then(function(response) {
+        return response.text()
+      }).then(function(body) {
+        this.setState({user: JSON.parse(body)})
+      }.bind(this)) 
   }
 
   render() {
@@ -32,7 +56,7 @@ class App extends Component {
       <BrowserRouter>
         <div className="container">
           <SideNav user={user} />
-          <TopNav user={user} />
+          <TopNav user={user} logout={this.logout} />
 
           { isLoggedIn ? (
             <div>
