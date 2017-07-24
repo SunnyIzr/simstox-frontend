@@ -79,6 +79,7 @@ class App extends Component {
             <div>
               <Switch>
                 <Route path="/user" render={ (props) => <User {...props} user={user} />} />
+                <Route path="/trade/:ticker" render={ (props) => <TradeForm {...props} user={user} />} />
                 <Route path="/trade" render={ (props) => <TradeForm {...props} user={user} />} />
                 <Route path="/portfolios/:portfolio_id/positions/:stock_id" render={ (props) => <Position {...props} user={user} />} />  
                 <Route path="/portfolios/:id" render={ (props) => <Portfolio {...props} user={user}/> } />

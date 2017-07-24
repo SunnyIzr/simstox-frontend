@@ -31,8 +31,9 @@ class TradeForm extends Component {
   }
 
   componentDidMount(){
-    if (this.state.ticker.trim() !== '') {
-      this.getPricing()
+    if (this.props.location.state.ticker != null){
+      this.setState({ticker: this.props.location.state.ticker, price_cents: this.props.location.state.price_cents})
+      this.getPricing(this.props.location.state.ticker)
     }
   }
 

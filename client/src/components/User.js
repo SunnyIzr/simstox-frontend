@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import '../styles/User.css'
 import Portfolios from './Portfolios'
+import { Link } from 'react-router-dom'
 
 class User extends Component {
   render() {
@@ -12,7 +13,7 @@ class User extends Component {
           <h4> It's a great day to trade. </h4>
         </div>
         <div className='user-btn-container center'>
-          <a className="waves-effect waves-light btn">Trade</a>
+          <Link to="/trade" className="waves-effect waves-light btn">Trade</Link>
         </div>
         <div className='clearfix'></div>
         <Portfolios portfolios={portfolios} />

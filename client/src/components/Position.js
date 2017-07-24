@@ -10,7 +10,7 @@ class Position extends Component {
   constructor(){
     super()
     this.state = {
-      position: {intraday: []}
+      position: {intraday: [[]]}
     }
   }
 
@@ -65,7 +65,7 @@ class Position extends Component {
         <MediaQuery query='(min-width: 993px)'>
           <div className='col s12 col l5'>
               <div className='button-container'>
-                <a className="waves-effect waves-light btn">Trade</a>
+                <Link to={{pathname: '/trade', state: {ticker: ticker, price_cents: ( intraday[0][1] * 100 ) }}} className="waves-effect waves-light btn">Trade</Link>
               </div>
             <StockPerformance historical_data={intraday} />
           </div>
