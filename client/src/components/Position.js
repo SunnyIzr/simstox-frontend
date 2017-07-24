@@ -3,6 +3,7 @@ import PositionStatistics from './PositionStatistics'
 import StockPerformance from './StockPerformance'
 import '../styles/Positions.css'
 import { Link } from 'react-router-dom'
+import Api from '../Api'
 
 var MediaQuery = require('react-responsive');
 
@@ -15,20 +16,11 @@ class Position extends Component {
   }
 
   componentDidMount(){
-    let { portfolio_id, stock_id } = this.props.match.params
-    let url = 'http://localhost:3001/portfolios/' + portfolio_id + "/stocks/" + stock_id
-    let data = { 
-      headers: {
-        'Content-Type': 'application/json',
-        "Authorization": sessionStorage.token
-      }
-    }
-    fetch(url, data)
-      .then(function(response) {
-        return response.text()
-      }).then(function(body){
-        this.setState({position: JSON.parse(body)})
-      }.bind(this))
+    const portfolioId = this.props.match.params.portfolio_id
+    const stockId = this.props.match.params.stock_id
+    Api.fetchPosition(portfolioId, stockId).then(body => {
+      this.setState({position: JSON.parse(body)})
+    })
   }
 
   render() {

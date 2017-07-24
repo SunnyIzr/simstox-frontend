@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PortfolioStatistics from './PortfolioStatistics'
+import Api from '../Api'
 import Positions from './Positions'
 import PortfolioPerformance from './PortfolioPerformance'
 import Trades from './Trades'
@@ -16,19 +17,10 @@ class Portfolio extends Component {
   }
 
   componentDidMount(){
-    let url='http://localhost:3001/portfolios/' + this.props.match.params.id
-    let data = { 
-      headers: {
-        'Content-Type': 'application/json',
-        "Authorization": sessionStorage.token
-      }
-    }
-    fetch(url, data)
-      .then(function(response) {
-        return response.text()
-      }).then(function(body) {
-        this.setState({portfolio: JSON.parse(body)})
-      }.bind(this))
+    const id = this.props.match.params.id
+    Api.fetchPortfolio(id).then(body => {      
+      this.setState({portfolio: JSON.parse(body)})
+    })
   }
 
   render() {

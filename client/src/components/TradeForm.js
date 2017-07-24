@@ -3,8 +3,8 @@ import '../styles/TradeForm.css'
 import '../styles/Dropdown.css'
 import Dropdown from 'react-dropdown'
 import { Redirect } from 'react-router';
-
 import StockPerformance from './StockPerformance'
+import Api from '../Api'
 
 var currencyFormatter = require('currency-formatter');
 var MediaQuery = require('react-responsive');
@@ -56,50 +56,30 @@ class TradeForm extends Component {
   }
 
   getPricing(ticker){
-    let url = 'http://localhost:3001/stocks/' + ticker + '/historical'
-    let data = { 
-      headers: {
-        'Content-Type': 'application/json'
-      }
-    }
-   fetch(url, data)
-      .then(function(response) {
-        return response.text()
-      }).then(function(body) {
+    
+   Api.getPricing(ticker).then(body => {
         let data = JSON.parse(body)
         if ( data.status === 500 || data.status === 404 ){
-          this.setState({stockData: []})
-          this.setState({price_cents: 0})
+          this.setState({stockData: [], price_cents: 0})
         } else {
-          this.setState({stockData: data})
-          this.setState({price_cents: data[0][1]})
+          this.setState({stockData: data, price_cents: data[0][1]})
         }
-      }.bind(this))
-
+      })
   }
 
   handleSubmit(e){
     e.preventDefault()
-    let { portfolioId, ticker, quantity, price_cents } = this.state
-    let data = { 
-        method: 'post',
-        headers: {
-          'Content-Type': 'application/json',
-          "Authorization": sessionStorage.token
-        },
-        body: JSON.stringify({
+    const { portfolioId, ticker, quantity, price_cents } = this.state
+    const data = {
           portfolio_id: portfolioId,
           ticker: ticker,
           quantity: quantity,
           price_cents: price_cents
-        })
-      }
-    fetch('http://localhost:3001/trades', data)
-      .then(function(response) {
-        return response.text()
-      }).then(function(body) {
+        }
+
+    Api.createTrade(data).then(body => {
         this.redirectToPortfolio()
-      }.bind(this))
+      })
   }
 
   render(){
@@ -115,7 +95,7 @@ class TradeForm extends Component {
     return(
       <form className="trade-form col s12" onSubmit={this.handleSubmit}>
         <div className='row'>
-        <a href='#' onClick={this.props.history.goBack} className='right close-btn'><i className="material-icons dp48">close</i><span></span></a>
+        <a href='#Back' onClick={this.props.history.goBack} className='right close-btn'><i className="material-icons dp48">close</i><span></span></a>
         </div>
         <div className='row'>
           <MediaQuery query='(min-width: 993px)'>

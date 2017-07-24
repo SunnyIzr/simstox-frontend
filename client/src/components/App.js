@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import '../styles/App.css';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import Api from '../Api'
 
 // App components
 import Home from './Home'
@@ -22,23 +23,17 @@ class App extends Component {
     }
     this.login = this.login.bind(this)
     this.logout = this.logout.bind(this)
-    this.getUserData = this.getUserData.bind(this)
+    this.fetchUser = this.fetchUser.bind(this)
   }
 
   componentDidMount(){
     if (sessionStorage.token != null){
-      this.getUserData()
+      this.fetchUser()
     }
   }
 
   login(loginData){
-    fetch('http://localhost:3001/users/login', {
-      method: 'post',
-      headers: {'Content-Type': 'application/json'},
-      body: JSON.stringify(loginData)
-    }).then(function(res){
-      return res.text()
-    }).then(function(body){
+    Api.login(loginData).then(function(body){
       this.setState(JSON.parse(body))
       sessionStorage.setItem('token', JSON.parse(body).token)
     }.bind(this))
@@ -49,20 +44,10 @@ class App extends Component {
     sessionStorage.clear()
   }
 
-  getUserData(){
-  let url = 'http://localhost:3001/user'
-  let data = { 
-    headers: {
-      'Content-Type': 'application/json',
-      "Authorization": sessionStorage.token
-    }
-  }
-   fetch(url, data)
-      .then(function(response) {
-        return response.text()
-      }).then(function(body) {
-        this.setState({user: JSON.parse(body)})
-      }.bind(this)) 
+  fetchUser(){
+    Api.fetchUser().then(body => {
+      this.setState({user: JSON.parse(body)})
+    })
   }
 
   render() {
