@@ -12,24 +12,21 @@ import Position from './Position'
 import TopNav from './TopNav'
 import SideNav from './SideNav'
 
+import {fetchUserIfNeeded} from '../index'
+
 
 
 class App extends Component {
   constructor(){
     super()
-    this.state = {
-      token: sessionStorage.token,
-      user: {}
-    }
     this.login = this.login.bind(this)
     this.logout = this.logout.bind(this)
     this.fetchUser = this.fetchUser.bind(this)
   }
 
   componentDidMount(){
-    if (sessionStorage.token != null){
-      this.fetchUser()
-    }
+    let dispatch = this.props.store.dispatch
+    dispatch(fetchUserIfNeeded)
   }
 
   login(loginData){
@@ -51,8 +48,8 @@ class App extends Component {
   }
 
   render() {
-    let { user } = this.state
-    const isLoggedIn = this.state.user.id != null
+    let { user } = this.props
+    const isLoggedIn = user.id != null
     return (
       <BrowserRouter>
         <div className="container">
