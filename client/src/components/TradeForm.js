@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import '../styles/TradeForm.css'
 import '../styles/Dropdown.css'
 import Dropdown from 'react-dropdown'
+import { Redirect } from 'react-router';
 
 import StockPerformance from './StockPerformance'
 
@@ -17,12 +18,16 @@ class TradeForm extends Component {
       price_cents: 0,
       availableCash: 0,
       portfolioId: null,
-      stockData: []
+      stockData: [],
+      portfolioName: null,
+      redirect: false
     }
     this.getPricing = this.getPricing.bind(this)
     this.handleQtyUpdate = this.handleQtyUpdate.bind(this)
     this.handleTickerUpdate = this.handleTickerUpdate.bind(this)
     this.handlePortfolioSelect = this.handlePortfolioSelect.bind(this)
+    this.handleSubmit = this.handleSubmit.bind(this)
+    this.redirectToPortfolio = this.redirectToPortfolio.bind(this)
   }
 
   componentDidMount(){
@@ -42,7 +47,11 @@ class TradeForm extends Component {
 
   handlePortfolioSelect(e){
     let portfolio = this.props.user.portfolios.find(portfolio => portfolio.id === e.value)
-    this.setState({portfolioId: portfolio.id, availableCash: portfolio.cash })
+    this.setState({portfolioId: portfolio.id, portfolioName: portfolio.name, availableCash: portfolio.cash })
+  }
+
+  redirectToPortfolio(){
+    this.setState({redirect: true})
   }
 
   getPricing(ticker){
@@ -68,24 +77,52 @@ class TradeForm extends Component {
 
   }
 
+  handleSubmit(e){
+    e.preventDefault()
+    let { portfolioId, ticker, quantity, price_cents } = this.state
+    let data = { 
+        method: 'post',
+        headers: {
+          'Content-Type': 'application/json',
+          "Authorization": sessionStorage.token
+        },
+        body: JSON.stringify({
+          portfolio_id: portfolioId,
+          ticker: ticker,
+          quantity: quantity,
+          price_cents: price_cents
+        })
+      }
+    fetch('http://localhost:3001/trades', data)
+      .then(function(response) {
+        return response.text()
+      }).then(function(body) {
+        this.redirectToPortfolio()
+      }.bind(this))
+  }
+
   render(){
-    let { ticker, quantity, price_cents, stockData, availableCash } = this.state
+    let { ticker, quantity, price_cents, stockData, availableCash, redirect, portfolioId, portfolioName } = this.state
     let options = this.props.user.portfolios.map( (portfolio) => { 
       return {value: portfolio.id, label: portfolio.name}
     })
-    let defaultOption = options[0]
+    let defaultOption = {value: portfolioId, label: portfolioName}
+
+    if (redirect) {
+      return <Redirect push to={"/portfolios/" + portfolioId } />;
+    }
     return(
-      <form className="trade-form col s12">
-      <div className='row'>
-        <div className="col s12 l6">
-          <p>Portfolio</p>
-          <Dropdown options={options} onChange={this.handlePortfolioSelect} value={defaultOption}   placeholder="Select an option" />
+      <form className="trade-form col s12" onSubmit={this.handleSubmit}>
+        <div className='row'>
+          <div className="col s12 l6">
+            <p>Portfolio</p>
+            <Dropdown options={options} onChange={this.handlePortfolioSelect} value={defaultOption} placeholder="Select an option" />
+          </div>
+          <div className="col s12 l6">
+            <p>Available Cash</p>
+            <h3>{currencyFormatter.format(availableCash , { code: 'USD' })}</h3>
+          </div>
         </div>
-        <div className="col s12 l6">
-          <p>Available Cash</p>
-          <h3>{currencyFormatter.format(availableCash , { code: 'USD' })}</h3>
-        </div>
-      </div>
         <div className="row">
           <div className="col s12 l6">
             <p>Ticker</p>
