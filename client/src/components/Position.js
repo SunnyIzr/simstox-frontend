@@ -52,7 +52,7 @@ class Position extends Component {
             </div>
             <MediaQuery query='(max-width: 992px)'>
               <div className='button-container'>
-                <a className="waves-effect waves-light btn">Trade</a>
+                <Link to={{pathname: '/trade', state: {ticker: ticker, price_cents: ( intraday[0][1] * 100 ) }}} className="waves-effect waves-light btn">Trade</Link>
               </div>
             </MediaQuery>
             <div className="clearfix"></div>

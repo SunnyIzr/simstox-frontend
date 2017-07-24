@@ -40,7 +40,6 @@ class App extends Component {
       return res.text()
     }).then(function(body){
       this.setState(JSON.parse(body))
-      console.log(JSON.parse(body).token)
       sessionStorage.setItem('token', JSON.parse(body).token)
     }.bind(this))
   }
