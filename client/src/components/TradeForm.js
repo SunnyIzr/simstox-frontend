@@ -31,7 +31,7 @@ class TradeForm extends Component {
   }
 
   componentDidMount(){
-    if (this.props.location.state.ticker != null){
+    if (this.props.location.state != null && this.props.location.state.ticker != null){
       this.setState({ticker: this.props.location.state.ticker, price_cents: this.props.location.state.price_cents})
       this.getPricing(this.props.location.state.ticker)
     }
@@ -115,46 +115,62 @@ class TradeForm extends Component {
     return(
       <form className="trade-form col s12" onSubmit={this.handleSubmit}>
         <div className='row'>
-          <div className="col s12 l6">
-            <p>Portfolio</p>
-            <Dropdown options={options} onChange={this.handlePortfolioSelect} value={defaultOption} placeholder="Select an option" />
-          </div>
-          <div className="col s12 l6">
-            <p>Available Cash</p>
-            <h3>{currencyFormatter.format(availableCash , { code: 'USD' })}</h3>
-          </div>
+        <a href='#' onClick={this.props.history.goBack} className='right close-btn'><i className="material-icons dp48">close</i><span></span></a>
         </div>
-        <div className="row">
-          <div className="col s12 l6">
-            <p>Ticker</p>
-            <input id="ticker" type="text" className="qty-input" placeholder="Ticker" value={ticker} onChange={this.handleTickerUpdate}/>
-          </div>
-          <div className="col s12 l6">
-            <p>Current Price</p>
-            <h3>${ price_cents / 100.00 }</h3>
-          </div>
-          </div>
-          <div className='row'>
-          <div className="input-field col s12 l6">
-            <p>Quantity</p>
-            <input id="quantity" type="number" className="qty-input" placeholder="Quantity" onKeyUp={this.handleQtyUpdate}/>
-          </div>
-          <div className="col s12 l6">
-            <p>Total</p>
-            <h3 className='trade-total'>
-            { currencyFormatter.format( ( ( quantity * price_cents ) / 100.00 ), { code: 'USD' }) }</h3>
-          </div>
-        </div>
+        <div className='row'>
+          <MediaQuery query='(min-width: 993px)'>
+            <div className='col s12 col l5'>
+              <p>Portfolio</p>
+                <Dropdown options={options} onChange={this.handlePortfolioSelect} value={defaultOption} placeholder="Select an option" />
+                <p>Available Cash</p>
+                <h3>{currencyFormatter.format(availableCash , { code: 'USD' })}</h3>
+              <StockPerformance historical_data={stockData} />
+            </div>
+          </MediaQuery>
+          <div className='col s12 col l7'>
+            <MediaQuery query='(max-width: 992px)'>
+              <div className='row'>
+                <div className="col s12 l6">
+                  <p>Portfolio</p>
+                  <Dropdown options={options} onChange={this.handlePortfolioSelect} value={defaultOption} placeholder="Select an option" />
+                </div>
+                <div className="col s12 l6">
+                  <p>Available Cash</p>
+                  <h3>{currencyFormatter.format(availableCash , { code: 'USD' })}</h3>
+                </div>
+              </div>
+            </MediaQuery>
+            <div className="row">
+              <div className="col s12 l6">
+                <p>Ticker</p>
+                <input id="ticker" type="text" className="qty-input" placeholder="Ticker" value={ticker} onChange={this.handleTickerUpdate}/>
+              </div>
+              <div className="col s12 l6">
+                <p>Current Price</p>
+                <h3>${ price_cents / 100.00 }</h3>
+              </div>
+              </div>
+              <div className='row'>
+              <div className="input-field col s12 l6">
+                <p>Quantity</p>
+                <input id="quantity" type="number" className="qty-input" placeholder="Quantity" onKeyUp={this.handleQtyUpdate}/>
+              </div>
+              <div className="col s12 l6">
+                <p>Total</p>
+                <h3 className='trade-total'>
+                { currencyFormatter.format( ( ( quantity * price_cents ) / 100.00 ), { code: 'USD' }) }</h3>
+              </div>
+            </div>
+            
 
-        <div className="row">
-          <div className="input-field col s12">
-            <button className="btn waves-effect waves-light trade-btn" type="submit" name="action">BUY
-            </button>
+            <div className="row">
+              <div className="input-field col s12">
+                <button className="btn waves-effect waves-light trade-btn" type="submit" name="action">BUY
+                </button>
+              </div>
+            </div>
           </div>
         </div>
-        <MediaQuery query='(min-width: 993px)'>
-          <StockPerformance historical_data={stockData} />
-        </MediaQuery>
       </form>
     )
   }

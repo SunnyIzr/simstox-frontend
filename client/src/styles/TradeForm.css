@@ -1,5 +1,5 @@
 .trade-form{
-  max-width: 800px;
+
   background: rgba(255,255,255,0.7);
   float: none !important;
   margin: auto;
@@ -43,6 +43,13 @@
 
 .home-message{
   text-align: center;
+}
+
+.close-btn{
+  color: #45588e;
+}
+.close-btn i{
+  font-size: 40px;
 }
 
 @media only screen and (min-width: 993px){
