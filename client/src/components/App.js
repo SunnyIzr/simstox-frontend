@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import '../styles/App.css';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
-import Api from '../Api'
+import Api from '../api'
 
 // App components
 import Home from './Home'

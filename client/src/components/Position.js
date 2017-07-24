@@ -3,7 +3,7 @@ import PositionStatistics from './PositionStatistics'
 import StockPerformance from './StockPerformance'
 import '../styles/Positions.css'
 import { Link } from 'react-router-dom'
-import Api from '../Api'
+import Api from '../api'
 
 var MediaQuery = require('react-responsive');
 

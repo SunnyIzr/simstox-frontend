@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PortfolioStatistics from './PortfolioStatistics'
-import Api from '../Api'
+import Api from '../api'
 import Positions from './Positions'
 import PortfolioPerformance from './PortfolioPerformance'
 import Trades from './Trades'

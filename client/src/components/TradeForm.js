@@ -4,7 +4,7 @@ import '../styles/Dropdown.css'
 import Dropdown from 'react-dropdown'
 import { Redirect } from 'react-router';
 import StockPerformance from './StockPerformance'
-import Api from '../Api'
+import Api from '../api'
 
 var currencyFormatter = require('currency-formatter');
 var MediaQuery = require('react-responsive');
