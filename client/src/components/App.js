@@ -37,8 +37,6 @@ class App extends Component {
   logout(){
     const dispatch = this.props.store.dispatch
     dispatch(logoutUser())
-    // this.setState({token: null, user: {}})
-    // sessionStorage.clear()
   }
 
   fetchUser(){

@@ -1,10 +1,11 @@
+import Session from './session/session'
 class Api{
   static fetchUser(){
     const url = 'http://localhost:3001/user'
     const data = { 
       headers: {
         'Content-Type': 'application/json',
-        "Authorization": sessionStorage.token
+        "Authorization": Session.token()
       }
     }
     return fetch(url, data)
@@ -31,7 +32,7 @@ class Api{
     const data = { 
       headers: {
         'Content-Type': 'application/json',
-        "Authorization": sessionStorage.token
+        "Authorization": Session.token()
       }
     }
     return fetch(url, data)
@@ -45,7 +46,7 @@ class Api{
     const data = { 
       headers: {
         'Content-Type': 'application/json',
-        "Authorization": sessionStorage.token
+        "Authorization": Session.token()
       }
     }
     return fetch(url, data)
@@ -73,7 +74,7 @@ class Api{
         method: 'post',
         headers: {
           'Content-Type': 'application/json',
-          "Authorization": sessionStorage.token
+          "Authorization": Session.token()
         },
         body: JSON.stringify(tradeData)
       }

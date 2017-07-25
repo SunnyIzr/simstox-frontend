@@ -1,4 +1,5 @@
 import Api from '../api.js'
+import Session from '../session/session'
 
 let fetchUser = () => {
   return dispatch => {
@@ -15,13 +16,8 @@ let fetchUser = () => {
   }
 }
 
-let shouldFetchUser = () => {
-  return !!sessionStorage.token
-}
-
-
 export let fetchUserIfNeeded = (dispatch) => {
-  if (shouldFetchUser()){
+  if (Session.isLoggedIn()){
     return dispatch(fetchUser())
   }
 }
@@ -33,7 +29,7 @@ export let loginUser = (credentials) => {
     })
     return Api.login(credentials)
       .then(body => {
-        sessionStorage.setItem('token', JSON.parse(body).token)
+        Session.login(JSON.parse(body).token)
         dispatch({
           type: 'RECEIVE_USER',
           data: JSON.parse(body).user
@@ -47,7 +43,7 @@ export let logoutUser = () => {
     dispatch({
       type: 'REMOVE_USER'
     })
-    sessionStorage.clear()
+    Session.logout()
   }
 }
 
