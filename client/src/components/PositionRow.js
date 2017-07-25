@@ -4,6 +4,7 @@ import '../styles/Positions.css';
 var currencyFormatter = require('currency-formatter');
 
 const PositionRow = ({
+  onClick,
   ticker,
   quantity,
   averagePrice,
@@ -11,7 +12,7 @@ const PositionRow = ({
   marketValue,
   unrealizedPl
 }) => (
-  <tr onClick={this.redirectToPosition}>
+  <tr onClick={onClick}>
     <td>{ticker}</td>
     <td>{quantity}</td>
     <td>{currencyFormatter.format(averagePrice, { code: 'USD' })}</td>

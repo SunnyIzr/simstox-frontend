@@ -4,6 +4,7 @@ import '../styles/Positions.css';
 var currencyFormatter = require('currency-formatter');
 
 const PortfolioRow = ({
+  onClick,
   name,
   cash,
   marketValue,
@@ -11,7 +12,7 @@ const PortfolioRow = ({
   totalPl,
   returnValue
 }) => (
-  <tr onClick={this.redirectToPortfolio}>
+  <tr onClick={onClick}>
     <td>{name}</td>
     <td>{currencyFormatter.format(cash, { code: 'USD' })}</td>
     <td>{currencyFormatter.format(marketValue, { code: 'USD' })}</td>

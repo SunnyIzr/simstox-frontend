@@ -22,6 +22,7 @@ class PositionRowContainer extends React.Component {
     }
     return(
       <PositionRow
+        onClick={this.redirectToPosition}
         ticker={ticker}
         quantity={quantity}
         averagePrice={average_price}

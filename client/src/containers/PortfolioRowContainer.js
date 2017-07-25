@@ -23,6 +23,7 @@ class PortfolioRowContainer extends React.Component {
     }
     return(
       <PortfolioRow 
+        onClick={this.redirectToPortfolio}
         name={name}
         cash={cash}
         marketValue={market_value}
