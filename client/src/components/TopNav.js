@@ -2,12 +2,12 @@ import React from 'react';
 import '../styles/TopNav.css';
 import { Link } from 'react-router-dom'
 
-const TopNav = ({user, logout}) => (
+const TopNav = ({userId, firstName, logout}) => (
   <div className='top-nav'>
     <p className='logo'>simstox</p>
-    { user.id != null ? (
+    { firstName != null ? (
       <p className='greeting'>
-        Hi { user.first_name }.&nbsp;
+        Hi { firstName }.&nbsp;
         <Link to='/' onClick={logout}>Logout</Link>
       </p>
     ) : (
