@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import '../styles/User.css'
 import Portfolios from './Portfolios'
 import { Link } from 'react-router-dom'
