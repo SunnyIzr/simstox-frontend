@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PositionStatistics from './PositionStatistics'
-import StockPerformance from './StockPerformance'
+import StockPerformanceContainer from '../containers/StockPerformanceContainer'
 import '../styles/Positions.css'
 import { Link } from 'react-router-dom'
 import Api from '../api'
@@ -51,7 +51,7 @@ class Position extends Component {
           </div>
           <PositionStatistics ticker={ticker} return_value={return_value} quantity={quantity} average_price={average_price} close_price={close_price} unrealized_pl={unrealized_pl}/>
           <MediaQuery query='(max-width: 992px)'>
-            <StockPerformance historical_data={intraday} />
+            <StockPerformanceContainer historical_data={intraday} />
           </MediaQuery>
         </div>
         <MediaQuery query='(min-width: 993px)'>
@@ -59,7 +59,7 @@ class Position extends Component {
               <div className='button-container'>
                 <Link to={{pathname: '/trade', state: {ticker: ticker, price_cents: ( intraday[0][1] * 100 ) }}} className="waves-effect waves-light btn">Trade</Link>
               </div>
-            <StockPerformance historical_data={intraday} />
+            <StockPerformanceContainer historical_data={intraday} />
           </div>
         </MediaQuery>
       </div>

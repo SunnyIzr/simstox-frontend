@@ -2,7 +2,7 @@ import React from 'react';
 import '../styles/TradeForm.css'
 import '../styles/Dropdown.css'
 import Dropdown from 'react-dropdown'
-import StockPerformance from './StockPerformance'
+import StockPerformanceContainer from '../containers/StockPerformanceContainer'
 
 var currencyFormatter = require('currency-formatter');
 var MediaQuery = require('react-responsive');
@@ -33,7 +33,7 @@ const TradeForm = ( {
             <Dropdown options={portfolioOptions} onChange={handlePortfolioSelect} value={defaultOption} placeholder="Select an option" />
             <p>Available Cash</p>
             <h3>{currencyFormatter.format(availableCash , { code: 'USD' })}</h3>
-          <StockPerformance historical_data={stockData} />
+          <StockPerformanceContainer historical_data={stockData} />
         </div>
       </MediaQuery>
       <div className='col s12 col l7'>
