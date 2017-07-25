@@ -12,7 +12,7 @@ import Position from './Position'
 import TopNav from './TopNav'
 import SideNav from './SideNav'
 
-import {fetchUserIfNeeded} from '../actions/user'
+import { fetchUserIfNeeded, loginUser, logoutUser } from '../actions/user'
 
 
 
@@ -25,20 +25,20 @@ class App extends Component {
   }
 
   componentDidMount(){
-    let dispatch = this.props.store.dispatch
+    const dispatch = this.props.store.dispatch
     dispatch(fetchUserIfNeeded,dispatch)
   }
 
   login(loginData){
-    Api.login(loginData).then(function(body){
-      this.setState(JSON.parse(body))
-      sessionStorage.setItem('token', JSON.parse(body).token)
-    }.bind(this))
+    const dispatch = this.props.store.dispatch
+    dispatch(loginUser(loginData))
   }
 
   logout(){
-    this.setState({token: null, user: {}})
-    sessionStorage.clear()
+    const dispatch = this.props.store.dispatch
+    dispatch(logoutUser())
+    // this.setState({token: null, user: {}})
+    // sessionStorage.clear()
   }
 
   fetchUser(){

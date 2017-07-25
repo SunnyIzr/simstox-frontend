@@ -15,6 +15,10 @@ const user = (
         isFetching: false,
         data: action.data
       })
+    case 'REMOVE_USER':
+      return Object.assign({}, state, {
+        data: {}
+      })
     default:
       return state
   }
