@@ -1,8 +1,6 @@
 import React from 'react'
 import '../styles/Chart.css';
 
-
-
 const PositionBreakdown = () => (
   <div>
     <h5>Breakdown</h5>

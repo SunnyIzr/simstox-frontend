@@ -1,7 +1,6 @@
 import React from 'react'
 import '../styles/Chart.css';
 
-
 const StockPerformance = () => (
   <div>
     <h5>Intraday</h5>

@@ -7,7 +7,6 @@ import StockPerformanceContainer from '../containers/StockPerformanceContainer'
 var currencyFormatter = require('currency-formatter');
 var MediaQuery = require('react-responsive');
 
-
 const TradeForm = ( {
   ticker,
   quantity,
