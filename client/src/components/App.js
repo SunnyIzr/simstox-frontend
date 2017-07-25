@@ -6,13 +6,13 @@ import Api from '../api'
 // Containers
 import PortfolioContainer from '../containers/PortfolioContainer'
 import TradeFormContainer from '../containers/TradeFormContainer'
+import SideNavContainer from '../containers/SideNavContainer'
 
 // App components
 import Home from './Home'
 import User from './User'
 import Position from './Position'
 import TopNav from './TopNav'
-import SideNav from './SideNav'
 
 import { fetchUserIfNeeded, loginUser, logoutUser } from '../actions/user'
 
@@ -53,7 +53,7 @@ class App extends Component {
     return (
       <BrowserRouter>
         <div className="container">
-          <SideNav user={user} />
+          <SideNavContainer user={user} />
           <TopNav firstName={user.first_name} logout={this.logout} />
 
           { isLoggedIn ? (
