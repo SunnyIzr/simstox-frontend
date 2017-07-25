@@ -7,11 +7,11 @@ import Api from '../api'
 import PortfolioContainer from '../containers/PortfolioContainer'
 import TradeFormContainer from '../containers/TradeFormContainer'
 import SideNavContainer from '../containers/SideNavContainer'
+import PositionContainer from '../containers/PositionContainer'
 
 // App components
 import Home from './Home'
 import User from './User'
-import Position from './Position'
 import TopNav from './TopNav'
 
 import { fetchUserIfNeeded, loginUser, logoutUser } from '../actions/user'
@@ -62,7 +62,7 @@ class App extends Component {
                 <Route path="/user" render={ (props) => <User firstName={user.first_name} portfolios={user.portfolios} />} />
                 <Route path="/trade/:ticker" render={ (props) => <TradeFormContainer {...props} user={user} />} />
                 <Route path="/trade" render={ (props) => <TradeFormContainer {...props} user={user} />} />
-                <Route path="/portfolios/:portfolio_id/positions/:stock_id" render={ (props) => <Position {...props} user={user} />} />  
+                <Route path="/portfolios/:portfolio_id/positions/:stock_id" render={ (props) => <PositionContainer {...props} user={user} />} />  
                 <Route path="/portfolios/:id" render={ (props) => <PortfolioContainer {...props} user={user}/> } />
                 <Route path="/" render={ (props) => <User firstName={user.first_name} portfolios={user.portfolios} />} />
               </Switch>
