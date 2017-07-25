@@ -4,15 +4,15 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Api from '../api'
 
 // Containers
-import PortfolioContainer from '../containers/PortfolioContainer'
-import TradeFormContainer from '../containers/TradeFormContainer'
-import SideNavContainer from '../containers/SideNavContainer'
-import PositionContainer from '../containers/PositionContainer'
+import PortfolioContainer from './PortfolioContainer'
+import TradeFormContainer from './TradeFormContainer'
+import SideNavContainer from './SideNavContainer'
+import PositionContainer from './PositionContainer'
 
 // App components
-import Home from './Home'
-import User from './User'
-import TopNav from './TopNav'
+import Home from '../components/Home'
+import User from '../components/User'
+import TopNav from '../components/TopNav'
 
 import { fetchUserIfNeeded, loginUser, logoutUser } from '../actions/user'
 

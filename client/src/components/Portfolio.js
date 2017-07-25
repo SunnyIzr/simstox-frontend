@@ -3,7 +3,7 @@ import PortfolioStatistics from './PortfolioStatistics'
 import Positions from './Positions'
 import PortfolioPerformanceContainer from '../containers/PortfolioPerformanceContainer'
 import Trades from './Trades'
-import PositionBreakdown from './PositionBreakdown'
+import PositionBreakdownContainer from '../containers/PositionBreakdownContainer'
 import { Link } from 'react-router-dom'
 var MediaQuery = require('react-responsive');
 
@@ -37,7 +37,7 @@ const Portfolio = ({
     <MediaQuery query='(min-width: 993px)'>
       <div className="col s12 col l4">
         <PortfolioPerformanceContainer historicalData={historicalData} />
-        <PositionBreakdown positions={positions} />
+        <PositionBreakdownContainer positions={positions} />
       </div>
     </MediaQuery>
   </div>

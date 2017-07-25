@@ -1,6 +1,6 @@
 import React from 'react'
 import '../styles/Positions.css';
-import PositionRow from './PositionRow'
+import PositionRowContainer from '../containers/PositionRowContainer'
 
 const Positions = ({ positions }) => (
   <div>
@@ -18,7 +18,7 @@ const Positions = ({ positions }) => (
       </thead>
       <tbody>
         { positions.map( (position, i) =>
-            <PositionRow position={position} key={i} />
+            <PositionRowContainer position={position} key={i} />
           )
         }
       </tbody>
