@@ -3,7 +3,7 @@ import '../styles/Statistics.css';
 
 var currencyFormatter = require('currency-formatter');
 
-const PortfolioStatistics = ({ name, return_value, cash, market_value, total_value }) => (
+const PortfolioStatistics = ({ name, returnValue, cash, marketValue, totalValue }) => (
   <div>
     <h5>Summary</h5>
     <ul className="collection">
@@ -12,7 +12,7 @@ const PortfolioStatistics = ({ name, return_value, cash, market_value, total_val
           Return
         </div>
         <div className='value'>
-          { return_value }%
+          { returnValue }%
         </div>
       </li>
       <li className="collection-item">
@@ -28,7 +28,7 @@ const PortfolioStatistics = ({ name, return_value, cash, market_value, total_val
           Market Value
         </div>
         <div className='value'>
-          {currencyFormatter.format(market_value, { code: 'USD' })}
+          {currencyFormatter.format(marketValue, { code: 'USD' })}
         </div>
       </li>
       <li className="collection-item">
@@ -36,7 +36,7 @@ const PortfolioStatistics = ({ name, return_value, cash, market_value, total_val
           Total Value
         </div>
         <div className='value'>
-          {currencyFormatter.format(total_value, { code: 'USD' })}
+          {currencyFormatter.format(totalValue, { code: 'USD' })}
         </div>
       </li>
     </ul>

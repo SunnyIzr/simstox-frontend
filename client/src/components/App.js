@@ -4,12 +4,12 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Api from '../api'
 
 // Containers
+import PortfolioContainer from '../containers/PortfolioContainer'
 import TradeFormContainer from '../containers/TradeFormContainer'
 
 // App components
 import Home from './Home'
 import User from './User'
-import Portfolio from './Portfolio'
 import Position from './Position'
 import TopNav from './TopNav'
 import SideNav from './SideNav'
@@ -63,7 +63,7 @@ class App extends Component {
                 <Route path="/trade/:ticker" render={ (props) => <TradeFormContainer {...props} user={user} />} />
                 <Route path="/trade" render={ (props) => <TradeFormContainer {...props} user={user} />} />
                 <Route path="/portfolios/:portfolio_id/positions/:stock_id" render={ (props) => <Position {...props} user={user} />} />  
-                <Route path="/portfolios/:id" render={ (props) => <Portfolio {...props} user={user}/> } />
+                <Route path="/portfolios/:id" render={ (props) => <PortfolioContainer {...props} user={user}/> } />
                 <Route path="/" render={ (props) => <User firstName={user.first_name} portfolios={user.portfolios} />} />
               </Switch>
             </div>

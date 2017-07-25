@@ -14,12 +14,12 @@ class PortfolioPerformance extends Component{
   }
 
   renderChart(){
-    let { historical_data } = this.props
+    let { historicalData } = this.props
     let ctx = document.getElementById("portfolioPerformance");
-    let labels = historical_data.map( (dataPoint,k) => 
+    let labels = historicalData.map( (dataPoint,k) => 
       dataPoint.time 
     )
-    let values = historical_data.map( (dataPoint,k) => 
+    let values = historicalData.map( (dataPoint,k) => 
       dataPoint.total_value 
     )  
 
