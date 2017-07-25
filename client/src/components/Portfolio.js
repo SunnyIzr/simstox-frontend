@@ -1,7 +1,7 @@
 import React from 'react';
 import PortfolioStatistics from './PortfolioStatistics'
 import Positions from './Positions'
-import PortfolioPerformance from './PortfolioPerformance'
+import PortfolioPerformanceContainer from '../containers/PortfolioPerformanceContainer'
 import Trades from './Trades'
 import PositionBreakdown from './PositionBreakdown'
 import { Link } from 'react-router-dom'
@@ -29,14 +29,14 @@ const Portfolio = ({
     <div className="col s12 col l8">
       <PortfolioStatistics name={name} returnValue={returnValue} cash={cash} marketValue={marketValue} totalValue={totalValue}/>
       <MediaQuery query='(max-width: 992px)'>
-        <PortfolioPerformance historicalData={historicalData} />
+        <PortfolioPerformanceContainer historicalData={historicalData} />
       </MediaQuery>
       <Positions positions={positions}/>
       <Trades trades={recentTrades}/>
     </div>
     <MediaQuery query='(min-width: 993px)'>
       <div className="col s12 col l4">
-        <PortfolioPerformance historicalData={historicalData} />
+        <PortfolioPerformanceContainer historicalData={historicalData} />
         <PositionBreakdown positions={positions} />
       </div>
     </MediaQuery>

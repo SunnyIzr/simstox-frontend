@@ -1,81 +1,14 @@
-import React, {Component} from 'react'
-import { Chart } from 'chart.js'
+import React from 'react'
 import '../styles/Chart.css';
 
 
-
-class PortfolioPerformance extends Component{
-  componentDidMount(){
-    this.renderChart()
-  }
-
-  componentDidUpdate(){
-    this.renderChart()
-  }
-
-  renderChart(){
-    let { historicalData } = this.props
-    let ctx = document.getElementById("portfolioPerformance");
-    let labels = historicalData.map( (dataPoint,k) => 
-      dataPoint.time 
-    )
-    let values = historicalData.map( (dataPoint,k) => 
-      dataPoint.total_value 
-    )  
-
-    new Chart(ctx, {
-      type: 'line',
-      data: {
-        labels: labels,
-        datasets: [{
-          label: 'Market Value',
-          data: values,
-          backgroundColor: [
-            'rgba(67, 172, 172, 0.2)'
-          ],
-          borderColor: [
-            'rgba(67,172,172,1)'
-          ],
-          borderWidth: 1,
-          fill: false,
-          pointHoverBorderWidth: 0
-        }]
-      },
-      options: {
-        legend: {
-          display: false
-        },
-        scales: {
-          yAxes: [{
-            ticks: {
-              beginAtZero:true
-            }
-          }],
-          xAxes: [{
-            ticks: {
-              display: false
-            }
-          }]
-        },
-        elements: {
-          point: {
-            radius: 0
-          }
-        }
-      }
-    });
-  }
-  render(){
-    return(
-      <div>
-        <h5>Performance</h5>
-        <div className='chart-container'>
-          <canvas id="portfolioPerformance"></canvas>
-        </div>
-      </div>
-    )
-  }
-}
-
+const PortfolioPerformance = () => (
+  <div>
+    <h5>Performance</h5>
+    <div className='chart-container'>
+      <canvas id="portfolioPerformance"></canvas>
+    </div>
+  </div>
+)
 
 export default PortfolioPerformance
