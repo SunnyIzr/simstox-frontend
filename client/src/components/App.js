@@ -12,7 +12,7 @@ import Position from './Position'
 import TopNav from './TopNav'
 import SideNav from './SideNav'
 
-import {fetchUserIfNeeded} from '../index'
+import {fetchUserIfNeeded} from '../actions/user'
 
 
 
@@ -26,7 +26,7 @@ class App extends Component {
 
   componentDidMount(){
     let dispatch = this.props.store.dispatch
-    dispatch(fetchUserIfNeeded)
+    dispatch(fetchUserIfNeeded,dispatch)
   }
 
   login(loginData){
