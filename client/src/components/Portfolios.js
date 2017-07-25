@@ -1,5 +1,5 @@
 import React from 'react'
-import PortfolioRow from './PortfolioRow'
+import PortfolioRowContainer from '../containers/PortfolioRowContainer'
 
 const Portfolios = ({ portfolios }) => (
   <div>
@@ -17,7 +17,7 @@ const Portfolios = ({ portfolios }) => (
       </thead>
       <tbody>
         { portfolios.map( (portfolio, i) =>
-            <PortfolioRow portfolio={portfolio} key={i} />
+            <PortfolioRowContainer portfolio={portfolio} key={i} />
           )
         }
       </tbody>

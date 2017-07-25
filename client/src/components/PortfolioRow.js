@@ -1,38 +1,24 @@
 import React from 'react';
-import { Redirect } from 'react-router';
 import '../styles/Positions.css';
 
 var currencyFormatter = require('currency-formatter');
 
-class PortfolioRow extends React.Component {
-  constructor(){
-    super()
-    this.state={
-      redirect: false
-    }
-    this.redirectToPortfolio = this.redirectToPortfolio.bind(this)
-  }
-
-  redirectToPortfolio(){
-    this.setState({redirect: true})
-  }
-
-  render(){
-    let { id, name, cash, market_value, total_value, total_pl, return_value } = this.props.portfolio
-    if (this.state.redirect) {
-      return <Redirect push to={"/portfolios/" + id} />;
-    }
-    return(
-      <tr onClick={this.redirectToPortfolio}>
-        <td>{name}</td>
-        <td>{currencyFormatter.format(cash, { code: 'USD' })}</td>
-        <td>{currencyFormatter.format(market_value, { code: 'USD' })}</td>
-        <td>{currencyFormatter.format(total_value, { code: 'USD' })}</td>
-        <td>{currencyFormatter.format(total_pl, { code: 'USD' })}</td>
-        <td>{ return_value }%</td>
-      </tr>
-    )
-  }
-}
+const PortfolioRow = ({
+  name,
+  cash,
+  marketValue,
+  totalValue,
+  totalPl,
+  returnValue
+}) => (
+  <tr onClick={this.redirectToPortfolio}>
+    <td>{name}</td>
+    <td>{currencyFormatter.format(cash, { code: 'USD' })}</td>
+    <td>{currencyFormatter.format(marketValue, { code: 'USD' })}</td>
+    <td>{currencyFormatter.format(totalValue, { code: 'USD' })}</td>
+    <td>{currencyFormatter.format(totalPl, { code: 'USD' })}</td>
+    <td>{ returnValue }%</td>
+  </tr>
+)
 
 export default PortfolioRow
