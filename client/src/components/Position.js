@@ -3,8 +3,7 @@ import PositionStatistics from './PositionStatistics'
 import StockPerformanceContainer from '../containers/StockPerformanceContainer'
 import '../styles/Positions.css'
 import { Link } from 'react-router-dom'
-
-var MediaQuery = require('react-responsive');
+import MediaQuery from 'react-responsive';
 
 const Position = ({
   portfolioId,

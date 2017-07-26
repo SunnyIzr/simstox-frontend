@@ -3,9 +3,9 @@ import '../styles/TradeForm.css'
 import '../styles/Dropdown.css'
 import Dropdown from 'react-dropdown'
 import StockPerformanceContainer from '../containers/StockPerformanceContainer'
+import MediaQuery from 'react-responsive';
 
 var currencyFormatter = require('currency-formatter');
-var MediaQuery = require('react-responsive');
 
 const TradeForm = ( {
   ticker,

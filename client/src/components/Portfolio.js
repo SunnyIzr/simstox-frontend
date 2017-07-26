@@ -5,7 +5,7 @@ import PortfolioPerformanceContainer from '../containers/PortfolioPerformanceCon
 import Trades from './Trades'
 import PositionBreakdownContainer from '../containers/PositionBreakdownContainer'
 import { Link } from 'react-router-dom'
-var MediaQuery = require('react-responsive');
+import MediaQuery from 'react-responsive';
 
 const Portfolio = ({
   name,
