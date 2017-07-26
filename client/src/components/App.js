@@ -16,16 +16,16 @@ import TopNav from './TopNav'
 const App = ({
   user,
   firstName,
+  portfolios,
   login,
   logout,
-  portfolios,
   isLoggedIn
 
 
 }) => (
   <BrowserRouter>
     <div className="container">
-      <SideNavContainer user={user} />
+      <SideNavContainer portfolios={portfolios} isLoggedIn={isLoggedIn}/>
       <TopNav firstName={firstName} logout={logout} />
 
       { isLoggedIn ? (

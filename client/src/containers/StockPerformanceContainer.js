@@ -19,8 +19,7 @@ class StockPerformanceContainer extends Component{
     )
     let values = historical_data.map( (dataPoint,k) => 
       dataPoint[1]
-    )  
-
+    )
     new Chart(ctx, {
       type: 'line',
         data: {

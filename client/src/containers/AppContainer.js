@@ -1,57 +1,66 @@
 import React, { Component } from 'react';
-import '../styles/App.css';
-import Api from '../api'
-
-
+import { connect } from 'react-redux'
+import PropTypes from 'prop-types'
+import Session from '../session/session'
 import App from '../components/App'
 
-import { fetchUserIfNeeded, loginUser, logoutUser } from '../actions/user'
-
+import { fetchUser, loginUser, logoutUser } from '../actions/user'
 
 
 class AppContainer extends Component {
-  constructor(){
-    super()
-    this.login = this.login.bind(this)
-    this.logout = this.logout.bind(this)
-    this.fetchUser = this.fetchUser.bind(this)
+  constructor(props, context){
+    super();
+    this.isLoggedIn = this.isLoggedIn.bind(this)
   }
-
   componentDidMount(){
-    const dispatch = this.props.store.dispatch
-    dispatch(fetchUserIfNeeded,dispatch)
+    if (Session.isLoggedIn()){
+      this.props.fetchUser()
+    }
   }
-
-  login(loginData){
-    const dispatch = this.props.store.dispatch
-    dispatch(loginUser(loginData))
+  isLoggedIn(){
+    return this.props.user.id != null
   }
-
-  logout(){
-    const dispatch = this.props.store.dispatch
-    dispatch(logoutUser())
-  }
-
-  fetchUser(){
-    Api.fetchUser().then(body => {
-      this.setState({user: JSON.parse(body)})
-    })
-  }
-
-  render() {
-    let { user } = this.props
-    const isLoggedIn = user.id != null
-    return (
+  render(){
+    const { user, login, logout } = this.props
+    const isLoggedIn = this.isLoggedIn()
+    return(
       <App 
-        user={user} 
+        user={user}
         firstName={user.first_name}
-        login={this.login}
-        logout={this.logout}
         portfolios={user.portfolios}
+        login={login}
+        logout={logout}
         isLoggedIn={isLoggedIn}
       />
     )
   }
 }
 
-export default AppContainer;
+AppContainer.propTypes = {
+  user: PropTypes.object
+}
+
+const mapStateToProps = state => {
+  return {
+    user: state.user.data,
+    firstName: state.user.data.first_name,
+    portfolios: state.user.data.portfolios,
+    isLoggedIn: true
+  }
+}
+
+const mapDispatchToProps = dispatch => {
+  return {
+    login: loginData => {
+      dispatch(loginUser(loginData))
+    },
+    logout: () => {
+      dispatch(logoutUser())
+    },
+    fetchUser: () => {
+      dispatch(fetchUser())
+    }
+  }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(AppContainer);

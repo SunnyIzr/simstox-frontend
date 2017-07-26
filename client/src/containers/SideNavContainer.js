@@ -14,9 +14,8 @@ class SideNavContainer extends React.Component {
     this.setState({isOpen: isOpen })
   }
   render () {
-    let { id, portfolios } = this.props.user
+    let { portfolios, isLoggedIn } = this.props
     const isOpen = this.state.isOpen
-    const isLoggedIn = id != null
     return (
       <SideNav
         isLoggedIn={isLoggedIn}

@@ -1,7 +1,7 @@
 import Api from '../api.js'
 import Session from '../session/session'
 
-let fetchUser = () => {
+export let fetchUser = () => {
   return dispatch => {
     dispatch({
       type: 'REQUEST_USER'
