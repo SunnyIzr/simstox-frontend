@@ -33,7 +33,7 @@ const App = ({
             <Route path="/user" render={ (props) => <User firstName={firstName} portfolios={portfolios} />} />
             <Route path="/trade/:ticker" render={ (props) => <TradeFormContainer portfolios={portfolios} />} />
             <Route path="/trade" render={ (props) => <TradeFormContainer {...props} portfolios={portfolios} />} />
-            <Route path="/portfolios/:portfolio_id/positions/:stock_id" render={ (props) => <PositionContainer />} />  
+            <Route path="/portfolios/:portfolio_id/positions/:stock_id" render={ (props) => <PositionContainer {...props} />} />  
             <Route path="/portfolios/:id" render={ (props) => <PortfolioContainer {...props}/> } />
             <Route path="/" render={ (props) => <User firstName={firstName} portfolios={portfolios} />} />
           </Switch>
