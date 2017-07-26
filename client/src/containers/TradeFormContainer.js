@@ -41,7 +41,7 @@ class TradeFormContainer extends Component {
   }
 
   handlePortfolioSelect(e){
-    let portfolio = this.props.user.portfolios.find(portfolio => portfolio.id === e.value)
+    let portfolio = this.props.portfolios.find(portfolio => portfolio.id === e.value)
     this.setState({portfolioId: portfolio.id, portfolioName: portfolio.name, availableCash: portfolio.cash })
   }
 
@@ -78,7 +78,7 @@ class TradeFormContainer extends Component {
 
   render(){
     const { ticker, quantity, price_cents, stockData, availableCash, redirect, portfolioId, portfolioName } = this.state
-    const portfolioOptions = this.props.user.portfolios.map( (portfolio) => { 
+    const portfolioOptions = this.props.portfolios.map( (portfolio) => { 
       return {value: portfolio.id, label: portfolio.name}
     })
     const defaultOption = {value: portfolioId, label: portfolioName}

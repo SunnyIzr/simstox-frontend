@@ -18,16 +18,15 @@ class AppContainer extends Component {
     }
   }
   isLoggedIn(){
-    return this.props.user.id != null
+    return this.props.userId != null
   }
   render(){
-    const { user, login, logout } = this.props
+    const { firstName, portfolios, login, logout } = this.props
     const isLoggedIn = this.isLoggedIn()
     return(
       <App 
-        user={user}
-        firstName={user.first_name}
-        portfolios={user.portfolios}
+        firstName={firstName}
+        portfolios={portfolios}
         login={login}
         logout={logout}
         isLoggedIn={isLoggedIn}
@@ -42,7 +41,7 @@ AppContainer.propTypes = {
 
 const mapStateToProps = state => {
   return {
-    user: state.user.data,
+    userId: state.user.data.id,
     firstName: state.user.data.first_name,
     portfolios: state.user.data.portfolios,
     isLoggedIn: true
