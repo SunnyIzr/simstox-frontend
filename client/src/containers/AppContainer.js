@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'
-import PropTypes from 'prop-types'
 import Session from '../session/session'
 import App from '../components/App'
 
@@ -33,10 +32,6 @@ class AppContainer extends Component {
       />
     )
   }
-}
-
-AppContainer.propTypes = {
-  user: PropTypes.object
 }
 
 const mapStateToProps = state => {
