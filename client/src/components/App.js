@@ -8,6 +8,7 @@ import TradeFormContainer from '../containers/TradeFormContainer'
 import SideNavContainer from '../containers/SideNavContainer'
 import PositionContainer from '../containers/PositionContainer'
 import NewUserFormContainer from '../containers/NewUserFormContainer'
+import NewPortfolioFormContainer from '../containers/NewPortfolioFormContainer'
 
 // App components
 import Home from './Home'
@@ -34,6 +35,7 @@ const App = ({
             <Route path="/user" render={ (props) => <User firstName={firstName} portfolios={portfolios} />} />
             <Route path="/trade/:ticker" render={ (props) => <TradeFormContainer portfolios={portfolios} />} />
             <Route path="/trade" render={ (props) => <TradeFormContainer {...props} portfolios={portfolios} />} />
+            <Route path="/new-portfolio" render={ (props) => <NewPortfolioFormContainer {...props} />} />  
             <Route path="/portfolios/:portfolio_id/positions/:stock_id" render={ (props) => <PositionContainer {...props} />} />  
             <Route path="/portfolios/:id" render={ (props) => <PortfolioContainer {...props}/> } />
             <Route path="/" render={ (props) => <User firstName={firstName} portfolios={portfolios} />} />
