@@ -7,6 +7,7 @@ import PortfolioContainer from '../containers/PortfolioContainer'
 import TradeFormContainer from '../containers/TradeFormContainer'
 import SideNavContainer from '../containers/SideNavContainer'
 import PositionContainer from '../containers/PositionContainer'
+import NewUserFormContainer from '../containers/NewUserFormContainer'
 
 // App components
 import Home from './Home'
@@ -40,8 +41,10 @@ const App = ({
         </div>
       ) : (
         <div>
-          <Route path="/*" render={ () => <p>You are not logged in</p>} />
-          <Route path="/*" render={ (props) => <Home {...props} login={login}/>}/>
+          <Switch>
+            <Route path="/signup" render={ (props) => <NewUserFormContainer {...props} />}/>
+            <Route path="/*" render={ (props) => <Home {...props} login={login}/>}/>
+          </Switch>
         </div>
       )}
     </div>
