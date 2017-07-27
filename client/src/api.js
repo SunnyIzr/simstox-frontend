@@ -1,7 +1,7 @@
 import Session from './session/session'
 class Api{
   static fetchUser(){
-    const url = 'http://localhost:3001/user'
+    const url = 'http://simstox.herokuapp.com/user'
     const data = { 
       headers: {
         'Content-Type': 'application/json',
@@ -15,7 +15,7 @@ class Api{
   }
 
   static login(credentials){
-    const url = 'http://localhost:3001/users/login'
+    const url = 'http://simstox.herokuapp.com/users/login'
     const data = {
       method: 'post',
       headers: {'Content-Type': 'application/json'},
@@ -28,7 +28,7 @@ class Api{
   }
 
   static signUp(userData){
-    const url = 'http://localhost:3001/users'
+    const url = 'http://simstox.herokuapp.com/users'
     const data = {
       method: 'post',
       headers: {'Content-Type': 'application/json'},
@@ -41,7 +41,7 @@ class Api{
   }
 
   static fetchPortfolio(id){
-    const url='http://localhost:3001/portfolios/' + id
+    const url='http://simstox.herokuapp.com/portfolios/' + id
     const data = { 
       headers: {
         'Content-Type': 'application/json',
@@ -55,7 +55,7 @@ class Api{
   }
 
   static fetchPosition(portfolioId, stockId){
-    const url = 'http://localhost:3001/portfolios/' + portfolioId + "/stocks/" + stockId
+    const url = 'http://simstox.herokuapp.com/portfolios/' + portfolioId + "/stocks/" + stockId
     const data = { 
       headers: {
         'Content-Type': 'application/json',
@@ -69,7 +69,7 @@ class Api{
   }
 
   static getPricing(ticker){
-    const url = 'http://localhost:3001/stocks/' + ticker + '/historical'
+    const url = 'http://simstox.herokuapp.com/stocks/' + ticker + '/historical'
     const data = { 
       headers: {
         'Content-Type': 'application/json'
@@ -82,7 +82,7 @@ class Api{
   }
 
   static createTrade(tradeData){
-    const url = 'http://localhost:3001/trades'
+    const url = 'http://simstox.herokuapp.com/trades'
     const data = { 
         method: 'post',
         headers: {
@@ -99,7 +99,7 @@ class Api{
   }
 
   static createPortfolio(portfolioData){
-    const url = 'http://localhost:3001/portfolios'
+    const url = 'http://simstox.herokuapp.com/portfolios'
     const data = { 
         method: 'post',
         headers: {
