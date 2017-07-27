@@ -40,6 +40,7 @@ class NewPortfolioFormContainer extends Component {
 
   render(){
     const { redirect, portfolioId } = this.state
+    const goBack = this.props.history.goBack
     if (redirect) {
       return <Redirect push to={"/portfolios/" + portfolioId } />;
     }
@@ -47,6 +48,7 @@ class NewPortfolioFormContainer extends Component {
       <NewPortfolioForm
         handleSubmit={this.handleSubmit}
         handleNameUpdate={this.handleNameUpdate}
+        goBack={goBack}
       />
     )
   }

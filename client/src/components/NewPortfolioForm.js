@@ -2,11 +2,15 @@ import React from 'react';
 
 const NewPortfolioForm = ({ 
   handleSubmit,
-  handleNameUpdate
+  handleNameUpdate,
+  goBack
 }) => (
   <div>
   <h2 className='home-message'> Create a New Portfolio </h2>
-    <form className="login-form col s12" onSubmit={handleSubmit}>
+    <form className="trade-form col s12" onSubmit={handleSubmit}>
+    <div className='row'>
+      <a href='#Back' onClick={goBack} className='right close-btn'><i className="material-icons dp48">close</i><span></span></a>
+    </div>
       <div className="row">
         <div className="input-field col s12">
           <input id="name" type="text" className="validate" onChange={handleNameUpdate} placeholder="Name" />
