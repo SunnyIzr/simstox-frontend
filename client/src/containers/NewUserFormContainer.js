@@ -7,6 +7,7 @@ class NewUserFormContainer extends Component {
     this.state={
       first_name: '',
       last_name: '',
+      email: '',
       username: '',
       password: ''
     }
@@ -40,7 +41,7 @@ class NewUserFormContainer extends Component {
 
   handleSubmit(e){
     e.preventDefault()
-    this.props.login(this.state)
+    this.props.signUp(this.state)
   }
 
   render(){

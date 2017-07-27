@@ -27,6 +27,19 @@ class Api{
       })
   }
 
+  static signUp(userData){
+    const url = 'http://localhost:3001/users'
+    const data = {
+      method: 'post',
+      headers: {'Content-Type': 'application/json'},
+      body: JSON.stringify(userData)
+    }
+    return fetch(url, data)
+      .then( response => {
+        return response.text()
+      })
+  }
+
   static fetchPortfolio(id){
     const url='http://localhost:3001/portfolios/' + id
     const data = { 

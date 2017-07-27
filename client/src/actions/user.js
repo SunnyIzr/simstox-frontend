@@ -47,3 +47,19 @@ export let logoutUser = () => {
   }
 }
 
+export let signUpUser = (userData) => {
+  return dispatch => {
+    dispatch({
+      type: 'REQUEST_USER'
+    })
+    return Api.signUp(userData)
+      .then(body => {
+        Session.login(JSON.parse(body).token)
+        dispatch({
+          type: 'RECEIVE_USER',
+          data: JSON.parse(body).user
+        })
+      })
+  }
+}
+

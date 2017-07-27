@@ -19,8 +19,8 @@ const App = ({
   portfolios,
   login,
   logout,
+  signUp,
   isLoggedIn
-
 
 }) => (
   <BrowserRouter>
@@ -42,7 +42,7 @@ const App = ({
       ) : (
         <div>
           <Switch>
-            <Route path="/signup" render={ (props) => <NewUserFormContainer {...props} />}/>
+            <Route path="/signup" render={ (props) => <NewUserFormContainer {...props} signUp={signUp} />}/>
             <Route path="/*" render={ (props) => <Home {...props} login={login}/>}/>
           </Switch>
         </div>

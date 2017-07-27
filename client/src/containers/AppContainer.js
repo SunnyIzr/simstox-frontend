@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 import Session from '../session/session'
 import App from '../components/App'
 
-import { fetchUser, loginUser, logoutUser } from '../actions/user'
+import { fetchUser, loginUser, logoutUser, signUpUser } from '../actions/user'
 
 
 class AppContainer extends Component {
@@ -20,7 +20,7 @@ class AppContainer extends Component {
     return this.props.userId != null
   }
   render(){
-    const { firstName, portfolios, login, logout } = this.props
+    const { firstName, portfolios, login, logout, signUp } = this.props
     const isLoggedIn = this.isLoggedIn()
     return(
       <App 
@@ -28,6 +28,7 @@ class AppContainer extends Component {
         portfolios={portfolios}
         login={login}
         logout={logout}
+        signUp={signUp}
         isLoggedIn={isLoggedIn}
       />
     )
@@ -53,6 +54,9 @@ const mapDispatchToProps = dispatch => {
     },
     fetchUser: () => {
       dispatch(fetchUser())
+    },
+    signUp: userData => {
+      dispatch(signUpUser(userData))
     }
   }
 }
