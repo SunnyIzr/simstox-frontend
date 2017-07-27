@@ -97,6 +97,23 @@ class Api{
         return response.text()
       })
   }
+
+  static createPortfolio(portfolioData){
+    const url = 'http://localhost:3001/portfolios'
+    const data = { 
+        method: 'post',
+        headers: {
+          'Content-Type': 'application/json',
+          "Authorization": Session.token()
+        },
+        body: JSON.stringify(portfolioData)
+      }
+
+    return fetch(url, data)
+      .then(response => {
+        return response.text()
+      })
+  }
 }
 
 export default Api

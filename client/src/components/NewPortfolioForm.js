@@ -15,7 +15,7 @@ const NewPortfolioForm = ({
 
       <div className="row">
         <div className="input-field col s12">
-          <button className="btn waves-effect waves-light login-btn" type="submit" name="action">Sign Up
+          <button className="btn waves-effect waves-light login-btn" type="submit" name="action">Create
           </button>
         </div>
       </div>
